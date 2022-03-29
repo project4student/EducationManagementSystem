@@ -1,0 +1,39 @@
+@{
+	ViewBag.PageTitle = "Home";
+}
+
+<div class="container-fluid position-relative mt-5">
+	<div class="swiper mySwiper">
+		<div class="swiper-wrapper">
+			<div class="swiper-slide rounded-2"><img src="~/Images/1.jpg"></div>
+			<div class="swiper-slide rounded-2"><img src="~/Images/4.jpg"></div>
+			<div class="swiper-slide rounded-2"><img src="~/Images/7.jpeg"></div>
+			<div class="swiper-slide rounded-2"><img src="~/Images/8.jpg"></div>
+		</div>
+	</div>
+	<div class="swiper-button-prev"></div>
+	<div class="swiper-button-next"></div>
+</div>
+<div class="container my-5">
+	<div class="card bg-transparent m-auto w-100 p-lg-5 p-4 border border-white rounded-3 aboutCard border-0">
+		<div class="row g-0 align-items-center flex-wrap-reverse">
+			<div class="col-12 col-lg-7">
+				<div class="card-body p-0 pe-lg-4 pe-0 text-justified">
+					<div class="card-title fw-bold fs-big">About Us</div>
+					<div class="card-text">The Education management system is a web-based system which will use as a
+						platform for interaction between student, teachers and parents. While the main objective of
+						this project is to computerize the paperwork in the system and automate the work. The
+						computerization is done so that the storage of all the details regarding students and
+						teachers will be stored in the system which makes system centralized and the chance of
+						duplication of any data is minimized. While by doing automation to the system will reduce
+						the time for storing any data in the system.</div>
+				</div>
+			</div>
+			<div class="col-12 col-lg-5 mb-3 mb-lg-0"><img class="w-100 img-fluid rounded-3" src="~/Images/5.jpeg">
+			</div>
+		</div>
+	</div>
+</div>
+@section CustomScripts {
+<script src="~/JS/index.js" asp-append-version="true"></script>
+}

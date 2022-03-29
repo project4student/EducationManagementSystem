@@ -1,0 +1,44 @@
+@{
+	ViewBag.PageTitle = "Login";
+}
+
+<div
+	class="loader d-none flex-column align-items-center justify-content-center position-fixed top-0 start-0 vh-100 vw-100">
+	<div class="mosaic-loader">
+		@for (int i = 0; i < 4; i++)
+		{
+			@for (int j = 0; j < 4; j++)
+			{
+				<div class="cell d-@(i + j)"></div>
+			}
+		}
+	</div>
+	<h5 class="my-3">Loading ...</h5>
+</div>
+<div class="container-fluid loginContainer pb-5">
+	<div class="position-fixed bottom-0 end-0 p-3">
+		<div class="toast align-items-center text-white border-0 fade" role="alert" aria-live="assertive"
+			aria-atomic="true">
+			<div class="d-flex">
+				<div class="toast-body text-dark"></div><button class="btn-close btn-close-dark me-2 m-auto"
+					type="button" data-bs-dismiss="toast" aria-label="Close"></button>
+			</div>
+		</div>
+	</div>
+	<h1 class="fs-large text-center py-3">Login</h1>
+	<form class="glass mt-5 p-4 rounded-1" id="login" action="/auth/login" method="post">
+		<div class="mb-3"><label class="mb-1" for="email">Enter Your Email</label><input class="form-control" id="email"
+				type="email" name="email" placeholder="Email" autocomplete="email"></div>
+		<div class="mb-3"><label class="mb-1" for="password">Enter Your Password</label><input class="form-control"
+				id="password" type="password" name="password" placeholder="Password" autocomplete="current-password">
+		</div>
+		<div class="mb-2"><button class="btn btn-outline-warning rounded-0" type="submit">Login</button></div>Don't have
+		account?<a role="button" class="link-warning d-block d-sm-inline-block ms-0 ms-sm-2">Get Your
+			Credentials!</a>
+	</form>
+</div>
+
+@section CustomScripts
+{
+<script src="~/JS/login.js" asp-append-version="true"></script>
+}
