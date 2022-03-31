@@ -2096,11 +2096,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "H:\\ITHubInternship\\EducationManagementSystem\\EducationManagementSystem.csproj",
+      "projectUniqueName": "H:\\ITHubInternship\\Project\\EducationManagementSystem\\EducationManagementSystem.csproj",
       "projectName": "EducationManagementSystem",
-      "projectPath": "H:\\ITHubInternship\\EducationManagementSystem\\EducationManagementSystem.csproj",
+      "projectPath": "H:\\ITHubInternship\\Project\\EducationManagementSystem\\EducationManagementSystem.csproj",
       "packagesPath": "C:\\Users\\gohil\\.nuget\\packages\\",
-      "outputPath": "H:\\ITHubInternship\\EducationManagementSystem\\obj\\",
+      "outputPath": "H:\\ITHubInternship\\Project\\EducationManagementSystem\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\gohil\\AppData\\Roaming\\NuGet\\NuGet.Config",

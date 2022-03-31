@@ -30,7 +30,7 @@ const validator = $("#login").validate({
 	},
 });
 
-const form = document.querySelector("form#login");
+const form = document.querySelector("form#LoginForm");
 const submitBtn = document.querySelector("button[type='submit']");
 
 submitBtn.addEventListener("click", async (e) => {
@@ -40,7 +40,8 @@ submitBtn.addEventListener("click", async (e) => {
 			loading(true);
 			const formData = new FormData(form).entries();
 			const body = Object.assign(...Array.from(formData, ([x, y]) => ({ [x]: y })));
-			const res = await fetch("/auth/login", {
+			console.log(body);
+			const res = await fetch("/Account/Login", {
 				method: "POST",
 				headers: {
 					"Content-Type": "application/json",
@@ -48,6 +49,7 @@ submitBtn.addEventListener("click", async (e) => {
 				body: JSON.stringify(body),
 			});
 			const data = await res.json();
+			if (res.redirected) console.log(res.url);
 			loading(false);
 			if (data.success) {
 				const paramsSplit = document.location.search.replace("?", "").split("&");
@@ -60,31 +62,13 @@ submitBtn.addEventListener("click", async (e) => {
 					if (ReturnUrl && ReturnUrl.value) return (window.location.href = decodeURIComponent(ReturnUrl.value));
 				}
 				window.location.href = decodeURIComponent(data.redirectUrl);
-				toast.classList.remove("bg-danger");
-				toastBody.classList.remove("text-white");
-				toastBtn.classList.remove("btn-close-white");
-				toast.classList.add("bg-success");
-				toastBody.classList.add("text-dark");
-				toastBtn.classList.add("btn-close-dark");
-				toastBody.innerHTML = data.success;
-				myToast.show();
-				form.reset();
+				showToast("success", "Login Successful !");
 			} else {
 				throw new Error(data.err);
 			}
 		}
 	} catch (err) {
 		loading(false);
-		toast.classList.remove("bg-success");
-		toastBody.classList.remove("text-dark");
-		toast.classList.add("bg-danger");
-		toastBody.classList.add("text-white");
-		toastBody.innerHTML = err.message;
-		toastBtn.classList.add("btn-close-white");
-		toastBtn.classList.remove("btn-close-dark");
-		myToast.show();
-		setTimeout(() => {
-			myToast.hide();
-		}, 6000);
+		showToast("danger", err.messages);
 	}
 });
