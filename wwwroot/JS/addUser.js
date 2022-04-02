@@ -11,13 +11,13 @@ $("#addUserForm button[type='submit']").click(async (e) => {
 	if ($("#UserTypeId").val() == "1") {
 		$("#RollNumber").rules("add", {
 			required: true,
-			message: {
+			messages: {
 				required: "Enter Roll Number",
 			},
 		});
 		$("#ClassId").rules("add", {
 			required: true,
-			message: {
+			messages: {
 				required: "Select Class",
 			},
 		});

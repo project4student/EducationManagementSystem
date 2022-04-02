@@ -1,3 +1,4 @@
+@model LoginViewModel
 @{
 	ViewBag.PageTitle = "Login";
 }
@@ -26,14 +27,22 @@
 		</div>
 	</div>
 	<h1 class="fs-large text-center py-3">Login</h1>
-	<form class="glass mt-5 p-4 rounded-1" id="login" action="/auth/login" method="post">
-		<div class="mb-3"><label class="mb-1" for="email">Enter Your Email</label><input class="form-control" id="email"
-				type="email" name="email" placeholder="Email" autocomplete="email"></div>
-		<div class="mb-3"><label class="mb-1" for="password">Enter Your Password</label><input class="form-control"
-				id="password" type="password" name="password" placeholder="Password" autocomplete="current-password">
+	<form class="glass mt-5 p-4 rounded-1" id="LoginForm" method="post" style="max-width: 576px;">
+		<div class="mb-3">
+			<label class="mb-1" asp-for="Email">Enter Your Email</label>
+			<input class="form-control" asp-for="Email" type="email" placeholder="Email" autocomplete="email">
+			<span class="d-block mt-1 text-danger" asp-validation-for="Email"></span>
 		</div>
-		<div class="mb-2"><button class="btn btn-outline-warning rounded-0" type="submit">Login</button></div>Don't have
-		account?<a role="button" class="link-warning d-block d-sm-inline-block ms-0 ms-sm-2">Get Your
+		<div class="mb-3">
+			<label class="mb-1" asp-for="Password">Enter Your Password</label>
+			<input class="form-control" asp-for="Password" type="password" placeholder="Password"
+				autocomplete="current-password">
+			<span class="d-block mt-1 text-danger" asp-validation-for="Password"></span>
+		</div>
+		<div class="mb-2">
+			<button class="btn btn-outline-warning rounded-0" type="submit">Login</button>
+		</div>
+		Don't have account?<a role="button" class="link-warning d-block d-sm-inline-block ms-0 ms-sm-2">Get Your
 			Credentials!</a>
 	</form>
 </div>

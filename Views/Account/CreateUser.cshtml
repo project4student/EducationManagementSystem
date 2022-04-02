@@ -1,102 +1,103 @@
 ﻿@model UserViewModels;
 @{
-    ViewBag.PageTitle = "Create Users";
+	ViewBag.PageTitle = "Create Users";
 }
 <div class="container-fluid mainContainer pb-5">x
-    <h1 class="fs-large text-center py-3 ">Add User</h1>
-    <form class="glass row mt-5 p-4 rounded-1" id="addUserForm" style="max-width: 767px;" enctype="multipart/form-data">
-        <nav class="col-12">
-            <div class="nav nav-tabs mb-3" id="nav-tab" role="tablist">
-                <button class="nav-link active w-50 " id="nav-teacher-tab" data-bs-toggle="tab"
-                    data-bs-target="#nav-teacher" type="button" role="tab" aria-controls="nav-teacher"
-                    aria-selected="true">Teacher</button>
-                <button class="nav-link w-50 " id="nav-student-tab" data-bs-toggle="tab" data-bs-target="#nav-student"
-                    type="button" role="tab" aria-controls="nav-student" aria-selected="false">Student</button>
-            </div>
-        </nav>
-        <div class="tab-content col-12" id="nav-tabContent">
-            <div class="tab-pane fade show active" id="nav-teacher" role="tabpanel" aria-labelledby="nav-teacher-tab">
-            </div>
-            <div class="tab-pane fade" id="nav-student" role="tabpanel" aria-labelledby="nav-student-tab">
-                <div class="row">
-                    <div class="mb-2 col-12 col-md-6">
-                        <label class="mb-1" asp-for="ClassId">Enter Class</label>
-                        <select asp-for="ClassId" class="form-select">
-                            <option value="">Select Class</option>
-                            @for (int i = 1; i < 11; i++)
-                            {
-                                <option value="@i">Class @i</option>
-                            }
-                        </select>
-                        <span asp-validation-for="ClassId" class="text-danger mt-1 d-inline-block"></span>
-                    </div>
-                    <div class="mb-2 col-12 col-md-6">
-                        <label class="mb-1" asp-for="RollNumber">Enter Roll Number</label>
-                        <input class="form-control" type="number" asp-for="RollNumber" min="1" placeholder="Roll Number"
-                            autocomplete="number">
-                        <span asp-validation-for="RollNumber" class="text-danger mt-1 d-inline-block"></span>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <input type="hidden" asp-for="UserTypeId" value="2">
-        <div class="mb-2 col-12 col-md-6">
-            <label class="mb-1" asp-for="FirstName">Enter First Name</label>
-            <input class="form-control" type="text" asp-for="FirstName" placeholder="First Name" autocomplete="text">
-            <span asp-validation-for="FirstName" class="text-danger mt-1 d-inline-block"></span>
-        </div>
-        <div class="mb-2 col-12 col-md-6">
-            <label class="mb-1" asp-for="MiddleName">Enter Middle Name</label>
-            <input class="form-control" type="text" asp-for="MiddleName" placeholder="Enter Middle Name"
-                autocomplete="text">
-            <span asp-validation-for="MiddleName" class="text-danger mt-1 d-inline-block"></span>
-        </div>
-        <div class="mb-2 col-12 col-md-6">
-            <label class="mb-1" asp-for="LastName">Enter LastName</label>
-            <input class="form-control" type="text" asp-for="LastName" placeholder="Enter Last Name"
-                autocomplete="text">
-            <span asp-validation-for="LastName" class="text-danger mt-1 d-inline-block"></span>
-        </div>
-        <div class="mb-2 col-12 col-md-6">
-            <label class="mb-1" asp-for="ProfilePicture">Select Profile Picture</label>
-            <input type="file" class="form-control" asp-for="ProfilePicture" placeholder="Select Profile Picture"
-                autocomplete="file">
-            <span asp-validation-for="ProfilePicture" class="text-danger mt-1 d-inline-block"></span>
-        </div>
-        <div class="mb-2 col-12 col-md-6">
-            <label class="mb-1" asp-for="DateOfBirth">Select Date of Birth</label>
-            <input class="form-control" type="text" asp-for="DateOfBirth" placeholder="DD/MM/YYYY" autocomplete="text">
-            <span asp-validation-for="DateOfBirth" class="text-danger mt-1 d-inline-block"></span>
-        </div>
-        <div class="mb-2 col-12 col-md-6">
-            <label class="mb-1" asp-for="Email">Enter Email</label>
-            <input class="form-control" asp-for="Email" placeholder="Email" autocomplete="email">
-            <span asp-validation-for="Email" class="text-danger mt-1 d-inline-block"></span>
-        </div>
-        <div class="mb-2 col-12 col-md-6">
-            <label class="mb-1" asp-for="PhoneNumber">Enter Mobile Number</label>
-            <input type="tel" class="form-control" asp-for="PhoneNumber" maxlength="10" placeholder="Mobile Number"
-                autocomplete="tel">
-            <span asp-validation-for="PhoneNumber" class="text-danger mt-1 d-inline-block"></span>
-        </div>
-        <div class="mb-2 col-12 col-md-6">
-            <label class="mb-1" asp-for="Password">Enter Your Password</label>
-            <input class="form-control" type="password" asp-for="Password" placeholder="Password"
-                autocomplete="current-password">
-            <span asp-validation-for="Password" class="text-danger mt-1 d-inline-block"></span>
-        </div>
-        <div class="mb-2 col-12">
-            <label class="mb-1" asp-for="Address">Enter Address</label>
-            <textarea class="form-control" asp-for="Address" placeholder="Address"></textarea>
-            <span asp-validation-for="Address" class="text-danger mt-1 d-inline-block"></span>
-        </div>
-        <div class="mb-2"><button class="btn btn-outline-warning rounded-0" type="submit">Submit</button></div>
-    </form>
+	<h1 class="fs-large text-center py-3 ">Add User</h1>
+	<form class="glass row mt-5 p-4 rounded-1" id="addUserForm" style="max-width: 767px;" enctype="multipart/form-data">
+		<nav class="col-12">
+			<div class="nav nav-tabs mb-3" id="nav-tab" role="tablist">
+				<button class="nav-link active w-50 fw-bold" id="nav-teacher-tab" data-bs-toggle="tab"
+					data-bs-target="#nav-teacher" type="button" role="tab" aria-controls="nav-teacher"
+					aria-selected="true">Teacher</button>
+				<button class="nav-link w-50 fw-bold" id="nav-student-tab" data-bs-toggle="tab"
+					data-bs-target="#nav-student" type="button" role="tab" aria-controls="nav-student"
+					aria-selected="false">Student</button>
+			</div>
+		</nav>
+		<div class="tab-content col-12" id="nav-tabContent">
+			<div class="tab-pane fade show active" id="nav-teacher" role="tabpanel" aria-labelledby="nav-teacher-tab">
+			</div>
+			<div class="tab-pane fade" id="nav-student" role="tabpanel" aria-labelledby="nav-student-tab">
+				<div class="row">
+					<div class="mb-2 col-12 col-md-6">
+						<label class="mb-1" asp-for="ClassId">Enter Class</label>
+						<select asp-for="ClassId" class="form-select">
+							<option value="">Select Class</option>
+							@for (int i = 1; i < 11; i++)
+							{
+								<option value="@i">Class @i</option>
+							}
+						</select>
+						<span asp-validation-for="ClassId" class="text-danger mt-1 d-inline-block"></span>
+					</div>
+					<div class="mb-2 col-12 col-md-6">
+						<label class="mb-1" asp-for="RollNumber">Enter Roll Number</label>
+						<input class="form-control" type="number" asp-for="RollNumber" min="1" placeholder="Roll Number"
+							autocomplete="number">
+						<span asp-validation-for="RollNumber" class="text-danger mt-1 d-inline-block"></span>
+					</div>
+				</div>
+			</div>
+		</div>
+		<input type="hidden" asp-for="UserTypeId" value="2">
+		<div class="mb-2 col-12 col-md-6">
+			<label class="mb-1" asp-for="FirstName">Enter First Name</label>
+			<input class="form-control" type="text" asp-for="FirstName" placeholder="First Name" autocomplete="text">
+			<span asp-validation-for="FirstName" class="text-danger mt-1 d-inline-block"></span>
+		</div>
+		<div class="mb-2 col-12 col-md-6">
+			<label class="mb-1" asp-for="MiddleName">Enter Middle Name</label>
+			<input class="form-control" type="text" asp-for="MiddleName" placeholder="Enter Middle Name"
+				autocomplete="text">
+			<span asp-validation-for="MiddleName" class="text-danger mt-1 d-inline-block"></span>
+		</div>
+		<div class="mb-2 col-12 col-md-6">
+			<label class="mb-1" asp-for="LastName">Enter LastName</label>
+			<input class="form-control" type="text" asp-for="LastName" placeholder="Enter Last Name"
+				autocomplete="text">
+			<span asp-validation-for="LastName" class="text-danger mt-1 d-inline-block"></span>
+		</div>
+		<div class="mb-2 col-12 col-md-6">
+			<label class="mb-1" asp-for="ProfilePicture">Select Profile Picture</label>
+			<input type="file" class="form-control" asp-for="ProfilePicture" placeholder="Select Profile Picture"
+				autocomplete="file">
+			<span asp-validation-for="ProfilePicture" class="text-danger mt-1 d-inline-block"></span>
+		</div>
+		<div class="mb-2 col-12 col-md-6">
+			<label class="mb-1" asp-for="DateOfBirth">Select Date of Birth</label>
+			<input class="form-control" type="text" asp-for="DateOfBirth" placeholder="DD/MM/YYYY" autocomplete="text">
+			<span asp-validation-for="DateOfBirth" class="text-danger mt-1 d-inline-block"></span>
+		</div>
+		<div class="mb-2 col-12 col-md-6">
+			<label class="mb-1" asp-for="Email">Enter Email</label>
+			<input class="form-control" asp-for="Email" placeholder="Email" autocomplete="email">
+			<span asp-validation-for="Email" class="text-danger mt-1 d-inline-block"></span>
+		</div>
+		<div class="mb-2 col-12 col-md-6">
+			<label class="mb-1" asp-for="PhoneNumber">Enter Mobile Number</label>
+			<input type="tel" class="form-control" asp-for="PhoneNumber" maxlength="10" placeholder="Mobile Number"
+				autocomplete="tel">
+			<span asp-validation-for="PhoneNumber" class="text-danger mt-1 d-inline-block"></span>
+		</div>
+		<div class="mb-2 col-12 col-md-6">
+			<label class="mb-1" asp-for="Password">Enter Your Password</label>
+			<input class="form-control" type="password" asp-for="Password" placeholder="Password"
+				autocomplete="current-password">
+			<span asp-validation-for="Password" class="text-danger mt-1 d-inline-block"></span>
+		</div>
+		<div class="mb-2 col-12">
+			<label class="mb-1" asp-for="Address">Enter Address</label>
+			<textarea class="form-control" asp-for="Address" placeholder="Address"></textarea>
+			<span asp-validation-for="Address" class="text-danger mt-1 d-inline-block"></span>
+		</div>
+		<div class="mb-2"><button class="btn btn-outline-warning rounded-0" type="submit">Submit</button></div>
+	</form>
 </div>
 @section CustomScripts{
 <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.min.js"
-    integrity="sha256-hlKLmzaRlE8SCJC1Kw8zoUbU8BxA+8kR3gseuKfMjxA=" crossorigin="anonymous"></script>
+	integrity="sha256-hlKLmzaRlE8SCJC1Kw8zoUbU8BxA+8kR3gseuKfMjxA=" crossorigin="anonymous"></script>
 <script
-    src="https://cdnjs.cloudflare.com/ajax/libs/jquery-ajax-unobtrusive/3.2.6/jquery.unobtrusive-ajax.min.js"></script>
+	src="https://cdnjs.cloudflare.com/ajax/libs/jquery-ajax-unobtrusive/3.2.6/jquery.unobtrusive-ajax.min.js"></script>
 <script src="/JS/addUser.js"></script>
 }

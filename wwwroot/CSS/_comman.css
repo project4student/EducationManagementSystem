@@ -130,15 +130,15 @@ body.loading {
 	height: 70px;
 }
 
-.nav-link {
+a.nav-link {
 	font-size: var(--font-regular);
 }
 
-.nav-link:hover {
+a.nav-link:hover {
 	color: var(--bs-body-color) !important;
 }
 
-.nav-link:focus {
+a.nav-link:focus {
 	box-shadow: none !important;
 }
 
