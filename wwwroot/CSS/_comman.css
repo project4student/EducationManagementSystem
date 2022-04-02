@@ -295,23 +295,47 @@ body.loading div.loader {
 	border-radius: 0;
 	transition: box-shadow 0.35s cubic-bezier(0.5, -0.7, 0.5, 2) !important;
 }
-
+textarea.form-control {
+	min-height: 146px;
+	resize: none;
+}
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
+/* Firefox */
+input[type="number"] {
+	-moz-appearance: textfield;
+}
 .form-select {
 	background-image: url("../Images/dropdownimage.png");
 	background-size: 20px 16px;
 }
+.form-check-input {
+	height: 0.8em;
+	width: 0.8em;
+	cursor: pointer;
+	box-shadow: none !important;
+}
+.form-check-input:checked[type="radio"] {
+	background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='2' fill='%23000'/%3e%3c/svg%3e");
+	background-color: var(--bs-warning);
+	border-color: var(--bs-warning);
+}
 
-.form-control.invalid,
-.form-select.invalid {
+.form-control.input-validation-error,
+.form-select.input-validation-error {
 	color: var(--bs-danger) !important;
 	border: 1px solid var(--bs-danger) !important;
 }
-.form-control.invalid:focus,
-.form-select.invalid:focus {
+.form-control.input-validation-error:focus,
+.form-select.input-validation-error:focus {
 	box-shadow: 0 0 7px 3px var(--bs-danger) !important;
 }
-.form-control.invalid::placeholder,
-.form-select.invalid::placeholder {
+.form-control.input-validation-error::placeholder,
+.form-select.input-validation-error::placeholder {
 	color: #da868ab4;
 }
 
@@ -334,7 +358,6 @@ body.loading div.loader {
 	font-size: var(--font-small);
 }
 .glass {
-	max-width: 576px;
 	background: rgba(255, 255, 255, 0.07);
 	margin: auto;
 	border-top: 1px solid rgba(255, 255, 255, 0.2);
@@ -356,7 +379,7 @@ button[type="submit"]:active {
 	box-shadow: none !important;
 }
 
-label.invalid {
+label.input-validation-error {
 	font-size: var(--font-small);
 	color: var(--bs-danger);
 	margin-top: 5px;
@@ -366,7 +389,7 @@ label.invalid {
 	z-index: 10000;
 }
 
-.signupContainer {
+.mainContainer {
 	background: fixed url("../Images/2.png") center center no-repeat;
 	background-size: cover;
 }
@@ -383,4 +406,23 @@ label.invalid {
 
 .notfoundImg {
 	filter: invert(1);
+}
+
+/* Tabs */
+div.nav.nav-tabs {
+	border-bottom: 2.5px solid transparent !important;
+}
+button.nav-link {
+	border-radius: 0 !important;
+	color: #fff !important;
+	outline: 1px solid transparent !important;
+	border-color: transparent !important;
+	background: rgba(255, 255, 255, 0.07) !important;
+	border-top: 1px solid rgba(255, 255, 255, 0.25) !important;
+	border-left: 1px solid rgba(255, 255, 255, 0.25) !important;
+	box-shadow: 5px 7px 15px rgba(0, 0, 0, 0.5) !important;
+}
+button.nav-link.active {
+	background: rgba(255, 255, 255, 0.25) !important;
+	color: #fff !important;
 }
