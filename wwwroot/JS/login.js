@@ -37,3 +37,46 @@ submitBtn.addEventListener("click", async (e) => {
 		showToast("danger", "Internal Server Error !");
 	}
 });
+
+$("#credentialsBtn").click(async (e) => {
+	try {
+		const validator = $("#getCredentialsForm").validate();
+		$("#credEmail").rules("add", {
+			required: true,
+			messages: {
+				required: "Enter Email",
+			},
+		});
+		if (validator.form()) {
+			e.preventDefault();
+			loading(true);
+			const formData = new FormData($("#getCredentialsForm")[0]);
+			const res = await fetch("/Account/GetCredentials?Email=" + formData.get("Email"), {
+				method: "POST",
+			});
+			const resJson = await res.json();
+			console.log(resJson);
+			if (res.redirected) window.location.href = res.url;
+			loading(false);
+			$("#getCredentialsModal .btn-close").click();
+			if (resJson.success) {
+				showToast("success", resJson.success);
+				$("#addUserForm").trigger("reset");
+			} else {
+				showToast("danger", resJson.err);
+			}
+		}
+	} catch (error) {
+		$("#getCredentialsModal .btn-close").click();
+		console.log(error.message);
+		loading(false);
+		showToast("danger", "Internal Server Error !");
+	}
+});
+
+// $("#getCredentialsModal").on("show.bs.modal", ($event) => {
+// 	$(".backdrop-blur").show();
+// });
+// $("#getCredentialsModal").on("hidden.bs.modal", ($event) => {
+// 	$(".backdrop-blur").hide();
+// });

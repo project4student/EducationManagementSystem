@@ -22,6 +22,29 @@ namespace EducationManagementSystem.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
+            modelBuilder.Entity("EducationManagementSystem.Models.EncryptedPassword", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("EncPassword")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("EncryptedPasswords");
+                });
+
             modelBuilder.Entity("EducationManagementSystem.Models.Subject", b =>
                 {
                     b.Property<int>("SubjectId")
@@ -310,6 +333,17 @@ namespace EducationManagementSystem.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
+            modelBuilder.Entity("EducationManagementSystem.Models.EncryptedPassword", b =>
+                {
+                    b.HasOne("EducationManagementSystem.Models.Users", "EncUserNavigation")
+                        .WithMany("EncUserNavigation")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("EncUserNavigation");
+                });
+
             modelBuilder.Entity("EducationManagementSystem.Models.SubjectAssigned", b =>
                 {
                     b.HasOne("EducationManagementSystem.Models.Subject", "SubjectNavigation")
@@ -387,6 +421,8 @@ namespace EducationManagementSystem.Migrations
 
             modelBuilder.Entity("EducationManagementSystem.Models.Users", b =>
                 {
+                    b.Navigation("EncUserNavigation");
+
                     b.Navigation("SubjectAssignedsNavigation");
                 });
 #pragma warning restore 612, 618

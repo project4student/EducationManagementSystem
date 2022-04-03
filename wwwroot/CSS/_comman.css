@@ -37,6 +37,7 @@
 	--bs-body-color: #fff;
 	--bs-body-bg: #121212;
 	--bs-body-line-height: 1.5;
+	--bs-warning-rgba: rgb(255, 229, 97);
 	--bs-body-color-rgb: 255, 255, 255;
 	--bs-primary-rgb: 94, 195, 247;
 	--bs-light-rgb: 248, 249, 250;
@@ -78,7 +79,54 @@ body.loading {
 .text-justified {
 	text-align: justify;
 }
-
+.modal-backdrop{
+	display: none !important;
+}
+.backdrop-blur{
+	position: fixed;
+	display: none;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	z-index: 1051;
+	backdrop-filter: blur(10px);
+}
+body.modal-open .backdrop-blur{
+	display: block;
+}
+@keyframes blur-in {
+	from {
+	  backdrop-filter: blur(0px);
+	}
+	to {
+	  backdrop-filter: blur(10px);
+	}
+  }
+.modal .form-control{
+	border: 1px solid #000 !important;
+}
+.modal .form-control::placeholder,
+.modal .form-select::placeholder {
+	color: rgba(0, 0, 0, 0.6);
+}
+.modal .form-control:focus,
+.modal .form-control:active,
+.modal .form-select:focus,
+.modal .form-select:active,
+.modal button:focus,
+.modal button:active{
+	box-shadow: 0 0 7px 2px var(--bs-dark);
+}
+.modal-header,
+.modal-footer{
+	border-color: #000;
+}
+/* .modal-body button:hover{
+	background-color:var(--bs-warning) !important;
+	color: var(--bs-dark);
+	border-color: #000;
+} */
 #ham {
 	display: none;
 }

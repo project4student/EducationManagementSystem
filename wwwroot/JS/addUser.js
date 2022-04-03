@@ -7,7 +7,6 @@ $("#DateOfBirth").datepicker({
 });
 
 $("#addUserForm button[type='submit']").click(async (e) => {
-	var flag = true;
 	if ($("#UserTypeId").val() == "1") {
 		$("#RollNumber").rules("add", {
 			required: true,
@@ -23,7 +22,7 @@ $("#addUserForm button[type='submit']").click(async (e) => {
 		});
 	}
 	const validator = $("#addUserForm").validate();
-	if (validator.form() & flag) {
+	if (validator.form()) {
 		e.preventDefault();
 		const formData = new FormData($("#addUserForm")[0]);
 		try {
@@ -37,7 +36,7 @@ $("#addUserForm button[type='submit']").click(async (e) => {
 			loading(false);
 			if (resJson.success) {
 				showToast("success", resJson.success);
-				validator.resetForm();
+				$("#addUserForm").trigger("reset");
 			} else {
 				showToast("danger", resJson.err);
 			}

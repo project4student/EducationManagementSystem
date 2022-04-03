@@ -2,30 +2,33 @@
 @{
 	ViewBag.PageTitle = "Login";
 }
-
-<div
-	class="loader d-none flex-column align-items-center justify-content-center position-fixed top-0 start-0 vh-100 vw-100">
-	<div class="mosaic-loader">
-		@for (int i = 0; i < 4; i++)
-		{
-			@for (int j = 0; j < 4; j++)
-			{
-				<div class="cell d-@(i + j)"></div>
-			}
-		}
-	</div>
-	<h5 class="my-3">Loading ...</h5>
-</div>
-<div class="container-fluid loginContainer pb-5">
-	<div class="position-fixed bottom-0 end-0 p-3">
-		<div class="toast align-items-center text-white border-0 fade" role="alert" aria-live="assertive"
-			aria-atomic="true">
-			<div class="d-flex">
-				<div class="toast-body text-dark"></div><button class="btn-close btn-close-dark me-2 m-auto"
-					type="button" data-bs-dismiss="toast" aria-label="Close"></button>
+<!-- Modal -->
+<div class="backdrop-blur"></div>
+<div class="modal fade" id="getCredentialsModal" tabindex="-1" aria-labelledby="getCredentialsModalLabel"
+	aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered ">
+		<div class="modal-content bg-warning bg-gradient">
+			<div class="modal-header border-0 pb-0">
+				<h5 class="modal-title text-dark" id="getCredentialsModalLabel">Get Credentials</h5>
+				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			</div>
+			<div class="modal-body pb-0">
+				<form id="getCredentialsForm">
+					<div class="mb-3">
+						<label class="mb-1 text-dark" for="credEmail">Enter Your Email</label>
+						<input class="form-control text-dark" id="credEmail" asp-for="Email" type="email"
+							placeholder="Email" autocomplete="email">
+						<span class="d-block mt-1 text-danger" asp-validation-for="Email"></span>
+					</div>
+					<div class="mb-3">
+						<button type="submit" id="credentialsBtn" class="btn btn-outline-dark rounded-0">Send</button>
+					</div>
+				</form>
 			</div>
 		</div>
 	</div>
+</div>
+<div class="container-fluid loginContainer pb-5">
 	<h1 class="fs-large text-center py-3">Login</h1>
 	<form class="glass mt-5 p-4 rounded-1" id="LoginForm" method="post" style="max-width: 576px;">
 		<div class="mb-3">
@@ -42,7 +45,8 @@
 		<div class="mb-2">
 			<button class="btn btn-outline-warning rounded-0" type="submit">Login</button>
 		</div>
-		Don't have account?<a role="button" class="link-warning d-block d-sm-inline-block ms-0 ms-sm-2">Get Your
+		Don't have account?<a role="button" data-bs-target="#getCredentialsModal" data-bs-toggle="modal"
+			class="link-warning d-block d-sm-inline-block ms-0 ms-sm-2">Get Your
 			Credentials!</a>
 	</form>
 </div>

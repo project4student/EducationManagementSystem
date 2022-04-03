@@ -10,6 +10,9 @@ public class EMSContext : IdentityDbContext<Users>
     }
 #nullable disable
     public DbSet<Users> User { get; set; }
+    public DbSet<Subject> Subject { get; set; }
+    public DbSet<SubjectAssigned> SubjectAssigned { get; set; }
+    public DbSet<EncryptedPassword> EncryptedPasswords { get; set; }
     protected override void OnModelCreating(ModelBuilder builder)
     {
         base.OnModelCreating(builder);
@@ -35,6 +38,14 @@ public class EMSContext : IdentityDbContext<Users>
             entity.HasOne(sa => sa.UserNavigation)
             .WithMany(u => u.SubjectAssignedsNavigation)
             .HasForeignKey(sa => sa.TeacherId)
+            .OnDelete(DeleteBehavior.Cascade);
+        });
+        builder.Entity<EncryptedPassword>(entity =>
+        {
+            entity.HasKey(ep => ep.Id);
+            entity.HasOne(ep => ep.EncUserNavigation)
+            .WithMany(u => u.EncUserNavigation)
+            .HasForeignKey(ep => ep.UserId)
             .OnDelete(DeleteBehavior.Cascade);
         });
     }
