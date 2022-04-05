@@ -13,6 +13,7 @@ public class EMSContext : IdentityDbContext<Users>
     public DbSet<Subject> Subject { get; set; }
     public DbSet<SubjectAssigned> SubjectAssigned { get; set; }
     public DbSet<EncryptedPassword> EncryptedPasswords { get; set; }
+    public DbSet<Schedule> Schedules { get; set; }
     protected override void OnModelCreating(ModelBuilder builder)
     {
         base.OnModelCreating(builder);
@@ -47,6 +48,11 @@ public class EMSContext : IdentityDbContext<Users>
             .WithMany(u => u.EncUserNavigation)
             .HasForeignKey(ep => ep.UserId)
             .OnDelete(DeleteBehavior.Cascade);
+        });
+
+        builder.Entity<Schedule>(entity =>
+        {
+            entity.HasKey(s => s.Id);
         });
     }
 }

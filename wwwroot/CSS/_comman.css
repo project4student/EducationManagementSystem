@@ -122,11 +122,6 @@ body.modal-open .backdrop-blur{
 .modal-footer{
 	border-color: #000;
 }
-/* .modal-body button:hover{
-	background-color:var(--bs-warning) !important;
-	color: var(--bs-dark);
-	border-color: #000;
-} */
 #ham {
 	display: none;
 }
@@ -374,19 +369,28 @@ input[type="number"] {
 }
 
 .form-control.input-validation-error,
-.form-select.input-validation-error {
+.form-select.input-validation-error,
+.form-select.error,
+.form-control.error{
 	color: var(--bs-danger) !important;
 	border: 1px solid var(--bs-danger) !important;
 }
 .form-control.input-validation-error:focus,
-.form-select.input-validation-error:focus {
+.form-select.input-validation-error:focus,
+.form-select.error:focus,
+.form-control.error:focus {
 	box-shadow: 0 0 7px 3px var(--bs-danger) !important;
 }
 .form-control.input-validation-error::placeholder,
-.form-select.input-validation-error::placeholder {
+.form-select.input-validation-error::placeholder,
+.form-select.error::placeholder,
+.form-control.error::placeholder {
 	color: #da868ab4;
 }
-
+label.error{
+	margin-top: 5px;
+	color: var(--bs-danger);
+}
 .form-control::placeholder,
 .form-select::placeholder {
 	color: rgba(255, 255, 255, 0.6);
@@ -444,6 +448,10 @@ label.input-validation-error {
 
 .loginContainer {
 	background: fixed url("../Images/6.webp") center center no-repeat;
+	background-size: cover;
+}
+.assignSubContainer{
+	background: fixed url("../Images/assignSubjectBG.jpg") center center no-repeat;
 	background-size: cover;
 }
 

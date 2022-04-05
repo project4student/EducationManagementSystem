@@ -2,9 +2,9 @@
     ViewBag.PageTitle = "Assign Subjects";
 }
 @model AssignSubjectViewModel;
-<div class="container-fluid pb-5 pt-3">
-    <h1 class="fs-large text-center py-3">Assign Subjects</h1>
-    <form class="glass mt-5 p-4 rounded-1" id="assignSubjectForm" style="max-width: 576px;">
+<div class="container-fluid assignSubContainer pb-5 pt-3">
+    <h1 class="fs-large text-center mb-0 py-3">Assign Subjects</h1>
+    <form class="glass mt-1 p-4 rounded-1" id="assignSubjectForm" style="max-width: 576px;">
         <div class="mb-3">
             <label class="mb-1" asp-for="ClassId">Select Class</label>
             <select class="form-select" asp-for="ClassId" id="Class">
@@ -27,9 +27,12 @@
             <label class="mb-1" asp-for="TeacherId">Select Teacher</label>
             <select class="form-select" asp-for="TeacherId">
                 <option value="">Select Teacher</option>
-                @foreach (var Teacher in Model.Teacher)
+                @if (Model != null && Model.Teacher.Any())
                 {
-                    <option value="@Teacher.Id">@Teacher.FirstName @Teacher.LastName</option>
+                    @foreach (var Teacher in Model.Teacher)
+                    {
+                        <option value="@Teacher.Id">@Teacher.FirstName @Teacher.LastName</option>
+                    }
                 }
             </select>
             <span class="d-block mt-1 text-danger" asp-validation-for="TeacherId"></span>

@@ -1,0 +1,40 @@
+@{
+    Layout = "_Layout";
+    ViewBag.PageTitle = "Schedule List";
+}
+<div class="container-fluid">
+    <h1 class="fs-large text-center mb-0 py-3">All Schedules</h1>
+    <div style="max-width: 900px;" class="m-auto">
+        <table id="scheduleList">
+            <thead>
+
+                <tr>
+                    <th>Class</th>
+                    <th>Details</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Daily Schedule</td>
+                    <td>
+                        <button class="btn btn-outline-warning rounded-0">View</button>
+                        <button class="btn btn-outline-warning rounded-0">Delete</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+@section CSS{
+<link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
+}
+@section CustomScripts{
+<script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#scheduleList').DataTable();
+    });
+</script>
+}

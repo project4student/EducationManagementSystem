@@ -20,7 +20,6 @@ $("select#Class").on("change", async ($event) => {
 });
 
 $("#assignSubjectForm button[type='submit']").click(async (e) => {
-	console.log("Click");
 	const validator = $("#assignSubjectForm").validate();
 	if (validator.form()) {
 		e.preventDefault();

@@ -12,6 +12,6 @@ public class AssignSubjectViewModel
     [Required]
     public int ClassId { get; set; }
 
+    public List<Users> Teacher { get; set; }
 #nullable enable
-    public List<Users>? Teacher { get; set; }
 }

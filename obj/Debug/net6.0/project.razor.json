@@ -16318,13 +16318,28 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "e:\\Study\\Sem-8\\Internship\\Education Management System\\EducationManagementSystem\\Views\\Admin\\AddSchedules.cshtml",
+      "TargetPath": "Views\\Admin\\AddSchedules.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "e:\\Study\\Sem-8\\Internship\\Education Management System\\EducationManagementSystem\\Views\\Admin\\AssignSubject.cshtml",
       "TargetPath": "Views\\Admin\\AssignSubject.cshtml",
       "FileKind": "mvc"
     },
     {
+      "FilePath": "e:\\Study\\Sem-8\\Internship\\Education Management System\\EducationManagementSystem\\Views\\Student\\IdCard.cshtml",
+      "TargetPath": "Views\\Student\\IdCard.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "e:\\Study\\Sem-8\\Internship\\Education Management System\\EducationManagementSystem\\Views\\Account\\Login.cshtml",
       "TargetPath": "Views\\Account\\Login.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "e:\\Study\\Sem-8\\Internship\\Education Management System\\EducationManagementSystem\\Views\\Admin\\GetScheduleList.cshtml",
+      "TargetPath": "Views\\Admin\\GetScheduleList.cshtml",
       "FileKind": "mvc"
     },
     {

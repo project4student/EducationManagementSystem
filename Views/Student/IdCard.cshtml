@@ -1,0 +1,102 @@
+@{
+    Layout = "_Layout";
+    ViewBag.PageTitle = "Id Card";
+}
+@section CSS{
+
+<style>
+    .school {
+        background-color: #faa701;
+    }
+
+    .schoolDetail img {
+        width: 50px;
+        height: 58px;
+    }
+
+    .schoolContact ul li {
+        list-style: none;
+    }
+
+    .student {
+        background-color: #efefef;
+    }
+
+    .studentDetail ul {
+        list-style: none;
+    }
+
+    .studentPhoto div {
+        border: 1px solid #faa701;
+        border-radius: 5px;
+        width: 110px;
+        float: right;
+    }
+
+    .schoolAddress {
+        background-color: #faa701;
+    }
+</style>
+}
+<div class="container-fluid">
+    <h1 class="fs-large  text-center mb-0 py-3">Id Card</h1>
+    <div style="max-width: 700px;" class="m-auto text-dark" id="idCard">
+        <div class="row py-3 m-0 school">
+            <div class="col-4 schoolDetail d-flex align-items-center">
+                <img src="/Images/logo.png" alt="Logo">
+                <h3 class="fs-5 mb-0 ms-3 text-nowrap">School Name</h3>
+            </div>
+            <div class="col-8 schoolContact">
+                <ul class="mb-0 text-end">
+                    <li class="fs-small"><b class="fs-small">Tel:</b> +91032646898</li>
+                    <li class="fs-small"><b class="fs-small">Fax:</b> Fax number</li>
+                    <li class="fs-small"><b class="fs-small">Email:</b> school@gmail.com</li>
+                    <li class="fs-small"><b class="fs-small">Website:</b> www.school.com</li>
+                </ul>
+            </div>
+        </div>
+        <div class=" row py-3 m-0 student">
+            <div class="col-8 studentDetail">
+                <ul class="ps-3">
+                    <li><b>Name:</b> Gohil Mihir</li>
+                    <li><b>Father Name:</b> Gohil Bhikhubha</li>
+                    <li><b>Class:</b> 10th</li>
+                    <li><b>Mobile:</b> +91 9726332809</li>
+                    <li><b>DOB:</b> 30/05/2001</li>
+                    <li><b>Address:</b> fjlkasfmd lkshaflc hdflkja jflajlf jflksa</li>
+                </ul>
+            </div>
+            <div class="col-4 text-end studentPhoto">
+                <div class="p-2">
+                    <img src="/ProfilePicture/48840c9f-ab00-4d63-8cdf-0c144a67f53fPhoto.jpg" class="w-100" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="text-center fw-bold p-3 m-0 schoolAddress">
+            Address Line1, Address Line 2, LandMark , City PinCode: 364001
+        </div>
+    </div>
+    <div class="text-center mt-2 py-3 print">
+        <button class="btn btn-outline-warning rounded-0" type="submit">Print</button>
+    </div>
+</div>
+@section CustomScripts{
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"
+    integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+
+    $("button[type='submit']").click(() => {
+        console.log("Click")
+        var element = document.getElementById("idCard");
+        var opt = {
+            margin: 2,
+            filename: 'IdCard.pdf',
+            html2canvas: { scale: 2.5 },
+            image: { type: 'png', quality: 1 },
+            jsPDF: { unit: 'em', format: 'b6', orientation: 'landscape' }
+        };
+        html2pdf().set(opt).from(element).save();
+    })
+</script>
+}

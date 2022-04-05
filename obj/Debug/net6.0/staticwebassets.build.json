@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "sC2ylHaZJYIFKHddRTsHGt35+lwBySlYkpqMNL4RvgU=",
+  "Hash": "ltH83QneR8kOQqcRNonEst6pw3oVjca9tb2l2O7PJBU=",
   "Source": "EducationManagementSystem",
   "BasePath": "_content/EducationManagementSystem",
   "Mode": "Default",
@@ -185,6 +185,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Images\\accessDenied.png"
+    },
+    {
+      "Identity": "E:\\Study\\Sem-8\\Internship\\Education Management System\\EducationManagementSystem\\wwwroot\\Images\\assignSubjectBG.jpg",
+      "SourceId": "EducationManagementSystem",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\Study\\Sem-8\\Internship\\Education Management System\\EducationManagementSystem\\wwwroot\\",
+      "BasePath": "_content/EducationManagementSystem",
+      "RelativePath": "Images/assignSubjectBG.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\assignSubjectBG.jpg"
     },
     {
       "Identity": "E:\\Study\\Sem-8\\Internship\\Education Management System\\EducationManagementSystem\\wwwroot\\Images\\dropdownimage.png",
@@ -493,6 +510,23 @@
       "OriginalItemSpec": "wwwroot\\ProfilePicture\\52bd97f5-3c73-4caf-8137-562ef17095d9design.png"
     },
     {
+      "Identity": "E:\\Study\\Sem-8\\Internship\\Education Management System\\EducationManagementSystem\\wwwroot\\ProfilePicture\\5cbaf4aa-3370-4074-b25b-3e3d86eae2dd00100sPORTRAIT_00100_BURST20210211161406552_COVER.jpg",
+      "SourceId": "EducationManagementSystem",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\Study\\Sem-8\\Internship\\Education Management System\\EducationManagementSystem\\wwwroot\\",
+      "BasePath": "_content/EducationManagementSystem",
+      "RelativePath": "ProfilePicture/5cbaf4aa-3370-4074-b25b-3e3d86eae2dd00100sPORTRAIT_00100_BURST20210211161406552_COVER.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\ProfilePicture\\5cbaf4aa-3370-4074-b25b-3e3d86eae2dd00100sPORTRAIT_00100_BURST20210211161406552_COVER.jpg"
+    },
+    {
       "Identity": "E:\\Study\\Sem-8\\Internship\\Education Management System\\EducationManagementSystem\\wwwroot\\ProfilePicture\\77219c37-72a4-48be-82b6-cbbbadd3983fIMG-20180604-WA0000.jpg",
       "SourceId": "EducationManagementSystem",
       "SourceType": "Discovered",
@@ -527,40 +561,6 @@
       "OriginalItemSpec": "wwwroot\\ProfilePicture\\926094f1-9a8d-426a-acd2-0d2625247f79Screenshot (1).png"
     },
     {
-      "Identity": "E:\\Study\\Sem-8\\Internship\\Education Management System\\EducationManagementSystem\\wwwroot\\ProfilePicture\\a10e8e02-ff48-4feb-95c3-22c91724c63100100sPORTRAIT_00100_BURST20210211160840731_COVER.jpg",
-      "SourceId": "EducationManagementSystem",
-      "SourceType": "Discovered",
-      "ContentRoot": "E:\\Study\\Sem-8\\Internship\\Education Management System\\EducationManagementSystem\\wwwroot\\",
-      "BasePath": "_content/EducationManagementSystem",
-      "RelativePath": "ProfilePicture/a10e8e02-ff48-4feb-95c3-22c91724c63100100sPORTRAIT_00100_BURST20210211160840731_COVER.jpg",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\ProfilePicture\\a10e8e02-ff48-4feb-95c3-22c91724c63100100sPORTRAIT_00100_BURST20210211160840731_COVER.jpg"
-    },
-    {
-      "Identity": "E:\\Study\\Sem-8\\Internship\\Education Management System\\EducationManagementSystem\\wwwroot\\ProfilePicture\\c9ce8c97-3d90-4a83-adf2-19a012dc911800100sPORTRAIT_00100_BURST20210211160357157_COVER.jpg",
-      "SourceId": "EducationManagementSystem",
-      "SourceType": "Discovered",
-      "ContentRoot": "E:\\Study\\Sem-8\\Internship\\Education Management System\\EducationManagementSystem\\wwwroot\\",
-      "BasePath": "_content/EducationManagementSystem",
-      "RelativePath": "ProfilePicture/c9ce8c97-3d90-4a83-adf2-19a012dc911800100sPORTRAIT_00100_BURST20210211160357157_COVER.jpg",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\ProfilePicture\\c9ce8c97-3d90-4a83-adf2-19a012dc911800100sPORTRAIT_00100_BURST20210211160357157_COVER.jpg"
-    },
-    {
       "Identity": "E:\\Study\\Sem-8\\Internship\\Education Management System\\EducationManagementSystem\\wwwroot\\ProfilePicture\\f754b7c8-9de3-483d-9af7-edb826091b0fPhoto.jpg",
       "SourceId": "EducationManagementSystem",
       "SourceType": "Discovered",
@@ -576,6 +576,40 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\ProfilePicture\\f754b7c8-9de3-483d-9af7-edb826091b0fPhoto.jpg"
+    },
+    {
+      "Identity": "E:\\Study\\Sem-8\\Internship\\Education Management System\\EducationManagementSystem\\wwwroot\\Uploads\\LectureScheduls\\0cd1c912-bd89-4891-bf0d-afa4d7bc6d24Fee .pdf",
+      "SourceId": "EducationManagementSystem",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\Study\\Sem-8\\Internship\\Education Management System\\EducationManagementSystem\\wwwroot\\",
+      "BasePath": "_content/EducationManagementSystem",
+      "RelativePath": "Uploads/LectureScheduls/0cd1c912-bd89-4891-bf0d-afa4d7bc6d24Fee .pdf",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Uploads\\LectureScheduls\\0cd1c912-bd89-4891-bf0d-afa4d7bc6d24Fee .pdf"
+    },
+    {
+      "Identity": "E:\\Study\\Sem-8\\Internship\\Education Management System\\EducationManagementSystem\\wwwroot\\Uploads\\LectureScheduls\\a52d5336-29de-4935-8c6d-659b54515edeDigital_report.pdf",
+      "SourceId": "EducationManagementSystem",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\Study\\Sem-8\\Internship\\Education Management System\\EducationManagementSystem\\wwwroot\\",
+      "BasePath": "_content/EducationManagementSystem",
+      "RelativePath": "Uploads/LectureScheduls/a52d5336-29de-4935-8c6d-659b54515edeDigital_report.pdf",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Uploads\\LectureScheduls\\a52d5336-29de-4935-8c6d-659b54515edeDigital_report.pdf"
     }
   ]
 }

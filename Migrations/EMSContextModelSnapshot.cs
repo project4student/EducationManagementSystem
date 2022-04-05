@@ -45,6 +45,29 @@ namespace EducationManagementSystem.Migrations
                     b.ToTable("EncryptedPasswords");
                 });
 
+            modelBuilder.Entity("EducationManagementSystem.Models.Schedule", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<int>("ClassId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("FilePath")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("isExam")
+                        .HasColumnType("bit");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Schedules");
+                });
+
             modelBuilder.Entity("EducationManagementSystem.Models.Subject", b =>
                 {
                     b.Property<int>("SubjectId")
