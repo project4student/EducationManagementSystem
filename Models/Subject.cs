@@ -13,4 +13,6 @@ public class Subject
 	public int ClassId { get; set; }
 
 	public virtual ICollection<SubjectAssigned> SubjectAssignedNavigation { get; set; }
+	public virtual ICollection<Homework> SubjectHomeworkNavigation { get; set; }
+
 }

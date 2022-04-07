@@ -79,10 +79,10 @@ body.loading {
 .text-justified {
 	text-align: justify;
 }
-.modal-backdrop{
+.modal-backdrop {
 	display: none !important;
 }
-.backdrop-blur{
+.backdrop-blur {
 	position: fixed;
 	display: none;
 	top: 0;
@@ -92,18 +92,18 @@ body.loading {
 	z-index: 1051;
 	backdrop-filter: blur(10px);
 }
-body.modal-open .backdrop-blur{
+body.modal-open .backdrop-blur {
 	display: block;
 }
 @keyframes blur-in {
 	from {
-	  backdrop-filter: blur(0px);
+		backdrop-filter: blur(0px);
 	}
 	to {
-	  backdrop-filter: blur(10px);
+		backdrop-filter: blur(10px);
 	}
-  }
-.modal .form-control{
+}
+.modal .form-control {
 	border: 1px solid #000 !important;
 }
 .modal .form-control::placeholder,
@@ -115,11 +115,11 @@ body.modal-open .backdrop-blur{
 .modal .form-select:focus,
 .modal .form-select:active,
 .modal button:focus,
-.modal button:active{
+.modal button:active {
 	box-shadow: 0 0 7px 2px var(--bs-dark);
 }
 .modal-header,
-.modal-footer{
+.modal-footer {
 	border-color: #000;
 }
 #ham {
@@ -371,7 +371,7 @@ input[type="number"] {
 .form-control.input-validation-error,
 .form-select.input-validation-error,
 .form-select.error,
-.form-control.error{
+.form-control.error {
 	color: var(--bs-danger) !important;
 	border: 1px solid var(--bs-danger) !important;
 }
@@ -387,7 +387,7 @@ input[type="number"] {
 .form-control.error::placeholder {
 	color: #da868ab4;
 }
-label.error{
+label.error {
 	margin-top: 5px;
 	color: var(--bs-danger);
 }
@@ -415,6 +415,22 @@ label.error{
 	border-top: 1px solid rgba(255, 255, 255, 0.2);
 	border-left: 1px solid rgba(255, 255, 255, 0.2);
 	box-shadow: 5px 7px 15px rgba(0, 0, 0, 0.5);
+	position: relative;
+	overflow: hidden;
+	backdrop-filter: blur(3px);
+}
+.glass::before {
+	content: "";
+	display: inline-block;
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	background: rgba(255, 255, 255, 0.04);
+	top: 0;
+	left: 0;
+	transform-origin: bottom;
+	transform: skewX(50deg);
+	pointer-events: none;
 }
 button[type="submit"] {
 	border-radius: 0;
@@ -450,8 +466,12 @@ label.input-validation-error {
 	background: fixed url("../Images/6.webp") center center no-repeat;
 	background-size: cover;
 }
-.assignSubContainer{
+.assignSubContainer {
 	background: fixed url("../Images/assignSubjectBG.jpg") center center no-repeat;
+	background-size: cover;
+}
+.addScheduleContainer {
+	background: fixed url("../Images/addScheduleBg.jpg") center center no-repeat;
 	background-size: cover;
 }
 
@@ -481,4 +501,38 @@ button.nav-link {
 button.nav-link.active {
 	background: rgba(255, 255, 255, 0.25) !important;
 	color: #fff !important;
+}
+
+.verticalNavbar {
+	min-width: fit-content;
+}
+
+.verticalNavbarLink {
+	text-decoration: none;
+	color: #fff;
+	min-width: fit-content;
+	transition: box-shadow 0.5s cubic-bezier(0.8, 0.2, 0.1, 0.5), color 0.5s cubic-bezier(0.8, 0.2, 0.1, 0.5);
+}
+
+.verticalNavbarLink:hover,
+.verticalNavbarLink.active {
+	box-shadow: inset 200px 0 0 var(--bs-warning);
+	color: var(--bs-dark);
+}
+
+.teacherContainer {
+	gap: 25px;
+}
+
+.teacherContainer {
+	min-height: calc(100vh - 255px);
+}
+
+@media screen and (max-width: 767px) {
+	.verticalNavbarLinkTitle {
+		display: none !important;
+	}
+	.verticalNavbarLink {
+		border-radius: 5px;
+	}
 }

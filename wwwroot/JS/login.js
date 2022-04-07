@@ -1,5 +1,5 @@
 const form = document.querySelector("form#LoginForm");
-const submitBtn = document.querySelector("button[type='submit']");
+const submitBtn = form.querySelector("button[type='submit']");
 
 submitBtn.addEventListener("click", async (e) => {
 	try {

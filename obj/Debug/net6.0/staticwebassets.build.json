@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "ltH83QneR8kOQqcRNonEst6pw3oVjca9tb2l2O7PJBU=",
+  "Hash": "YrHOCi2fPnOwsw1RZHJOdQWg2+zgZ6hX8bVCKi+K+rk=",
   "Source": "EducationManagementSystem",
   "BasePath": "_content/EducationManagementSystem",
   "Mode": "Default",
@@ -10,17 +10,17 @@
     {
       "Name": "EducationManagementSystem\\wwwroot",
       "Source": "EducationManagementSystem",
-      "ContentRoot": "E:\\Study\\Sem-8\\Internship\\Education Management System\\EducationManagementSystem\\wwwroot\\",
+      "ContentRoot": "H:\\ITHubInternship\\Project\\EducationManagementSystem\\wwwroot\\",
       "BasePath": "_content/EducationManagementSystem",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
-      "Identity": "E:\\Study\\Sem-8\\Internship\\Education Management System\\EducationManagementSystem\\wwwroot\\CSS\\_comman.css",
+      "Identity": "H:\\ITHubInternship\\Project\\EducationManagementSystem\\wwwroot\\CSS\\_comman.css",
       "SourceId": "EducationManagementSystem",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\Study\\Sem-8\\Internship\\Education Management System\\EducationManagementSystem\\wwwroot\\",
+      "ContentRoot": "H:\\ITHubInternship\\Project\\EducationManagementSystem\\wwwroot\\",
       "BasePath": "_content/EducationManagementSystem",
       "RelativePath": "CSS/_comman.css",
       "AssetKind": "All",
@@ -34,10 +34,27 @@
       "OriginalItemSpec": "wwwroot\\CSS\\_comman.css"
     },
     {
-      "Identity": "E:\\Study\\Sem-8\\Internship\\Education Management System\\EducationManagementSystem\\wwwroot\\Images\\1.jpg",
+      "Identity": "H:\\ITHubInternship\\Project\\EducationManagementSystem\\wwwroot\\CSS\\stackCard.css",
       "SourceId": "EducationManagementSystem",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\Study\\Sem-8\\Internship\\Education Management System\\EducationManagementSystem\\wwwroot\\",
+      "ContentRoot": "H:\\ITHubInternship\\Project\\EducationManagementSystem\\wwwroot\\",
+      "BasePath": "_content/EducationManagementSystem",
+      "RelativePath": "CSS/stackCard.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\CSS\\stackCard.css"
+    },
+    {
+      "Identity": "H:\\ITHubInternship\\Project\\EducationManagementSystem\\wwwroot\\Images\\1.jpg",
+      "SourceId": "EducationManagementSystem",
+      "SourceType": "Discovered",
+      "ContentRoot": "H:\\ITHubInternship\\Project\\EducationManagementSystem\\wwwroot\\",
       "BasePath": "_content/EducationManagementSystem",
       "RelativePath": "Images/1.jpg",
       "AssetKind": "All",
@@ -51,10 +68,10 @@
       "OriginalItemSpec": "wwwroot\\Images\\1.jpg"
     },
     {
-      "Identity": "E:\\Study\\Sem-8\\Internship\\Education Management System\\EducationManagementSystem\\wwwroot\\Images\\2.png",
+      "Identity": "H:\\ITHubInternship\\Project\\EducationManagementSystem\\wwwroot\\Images\\2.png",
       "SourceId": "EducationManagementSystem",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\Study\\Sem-8\\Internship\\Education Management System\\EducationManagementSystem\\wwwroot\\",
+      "ContentRoot": "H:\\ITHubInternship\\Project\\EducationManagementSystem\\wwwroot\\",
       "BasePath": "_content/EducationManagementSystem",
       "RelativePath": "Images/2.png",
       "AssetKind": "All",
@@ -68,10 +85,10 @@
       "OriginalItemSpec": "wwwroot\\Images\\2.png"
     },
     {
-      "Identity": "E:\\Study\\Sem-8\\Internship\\Education Management System\\EducationManagementSystem\\wwwroot\\Images\\3.png",
+      "Identity": "H:\\ITHubInternship\\Project\\EducationManagementSystem\\wwwroot\\Images\\3.png",
       "SourceId": "EducationManagementSystem",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\Study\\Sem-8\\Internship\\Education Management System\\EducationManagementSystem\\wwwroot\\",
+      "ContentRoot": "H:\\ITHubInternship\\Project\\EducationManagementSystem\\wwwroot\\",
       "BasePath": "_content/EducationManagementSystem",
       "RelativePath": "Images/3.png",
       "AssetKind": "All",
@@ -85,10 +102,10 @@
       "OriginalItemSpec": "wwwroot\\Images\\3.png"
     },
     {
-      "Identity": "E:\\Study\\Sem-8\\Internship\\Education Management System\\EducationManagementSystem\\wwwroot\\Images\\4.jpg",
+      "Identity": "H:\\ITHubInternship\\Project\\EducationManagementSystem\\wwwroot\\Images\\4.jpg",
       "SourceId": "EducationManagementSystem",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\Study\\Sem-8\\Internship\\Education Management System\\EducationManagementSystem\\wwwroot\\",
+      "ContentRoot": "H:\\ITHubInternship\\Project\\EducationManagementSystem\\wwwroot\\",
       "BasePath": "_content/EducationManagementSystem",
       "RelativePath": "Images/4.jpg",
       "AssetKind": "All",
@@ -102,10 +119,10 @@
       "OriginalItemSpec": "wwwroot\\Images\\4.jpg"
     },
     {
-      "Identity": "E:\\Study\\Sem-8\\Internship\\Education Management System\\EducationManagementSystem\\wwwroot\\Images\\5.jpeg",
+      "Identity": "H:\\ITHubInternship\\Project\\EducationManagementSystem\\wwwroot\\Images\\5.jpeg",
       "SourceId": "EducationManagementSystem",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\Study\\Sem-8\\Internship\\Education Management System\\EducationManagementSystem\\wwwroot\\",
+      "ContentRoot": "H:\\ITHubInternship\\Project\\EducationManagementSystem\\wwwroot\\",
       "BasePath": "_content/EducationManagementSystem",
       "RelativePath": "Images/5.jpeg",
       "AssetKind": "All",
@@ -119,10 +136,10 @@
       "OriginalItemSpec": "wwwroot\\Images\\5.jpeg"
     },
     {
-      "Identity": "E:\\Study\\Sem-8\\Internship\\Education Management System\\EducationManagementSystem\\wwwroot\\Images\\6.webp",
+      "Identity": "H:\\ITHubInternship\\Project\\EducationManagementSystem\\wwwroot\\Images\\6.webp",
       "SourceId": "EducationManagementSystem",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\Study\\Sem-8\\Internship\\Education Management System\\EducationManagementSystem\\wwwroot\\",
+      "ContentRoot": "H:\\ITHubInternship\\Project\\EducationManagementSystem\\wwwroot\\",
       "BasePath": "_content/EducationManagementSystem",
       "RelativePath": "Images/6.webp",
       "AssetKind": "All",
@@ -136,10 +153,10 @@
       "OriginalItemSpec": "wwwroot\\Images\\6.webp"
     },
     {
-      "Identity": "E:\\Study\\Sem-8\\Internship\\Education Management System\\EducationManagementSystem\\wwwroot\\Images\\7.jpeg",
+      "Identity": "H:\\ITHubInternship\\Project\\EducationManagementSystem\\wwwroot\\Images\\7.jpeg",
       "SourceId": "EducationManagementSystem",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\Study\\Sem-8\\Internship\\Education Management System\\EducationManagementSystem\\wwwroot\\",
+      "ContentRoot": "H:\\ITHubInternship\\Project\\EducationManagementSystem\\wwwroot\\",
       "BasePath": "_content/EducationManagementSystem",
       "RelativePath": "Images/7.jpeg",
       "AssetKind": "All",
@@ -153,10 +170,10 @@
       "OriginalItemSpec": "wwwroot\\Images\\7.jpeg"
     },
     {
-      "Identity": "E:\\Study\\Sem-8\\Internship\\Education Management System\\EducationManagementSystem\\wwwroot\\Images\\8.jpg",
+      "Identity": "H:\\ITHubInternship\\Project\\EducationManagementSystem\\wwwroot\\Images\\8.jpg",
       "SourceId": "EducationManagementSystem",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\Study\\Sem-8\\Internship\\Education Management System\\EducationManagementSystem\\wwwroot\\",
+      "ContentRoot": "H:\\ITHubInternship\\Project\\EducationManagementSystem\\wwwroot\\",
       "BasePath": "_content/EducationManagementSystem",
       "RelativePath": "Images/8.jpg",
       "AssetKind": "All",
@@ -170,10 +187,10 @@
       "OriginalItemSpec": "wwwroot\\Images\\8.jpg"
     },
     {
-      "Identity": "E:\\Study\\Sem-8\\Internship\\Education Management System\\EducationManagementSystem\\wwwroot\\Images\\accessDenied.png",
+      "Identity": "H:\\ITHubInternship\\Project\\EducationManagementSystem\\wwwroot\\Images\\accessDenied.png",
       "SourceId": "EducationManagementSystem",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\Study\\Sem-8\\Internship\\Education Management System\\EducationManagementSystem\\wwwroot\\",
+      "ContentRoot": "H:\\ITHubInternship\\Project\\EducationManagementSystem\\wwwroot\\",
       "BasePath": "_content/EducationManagementSystem",
       "RelativePath": "Images/accessDenied.png",
       "AssetKind": "All",
@@ -187,10 +204,27 @@
       "OriginalItemSpec": "wwwroot\\Images\\accessDenied.png"
     },
     {
-      "Identity": "E:\\Study\\Sem-8\\Internship\\Education Management System\\EducationManagementSystem\\wwwroot\\Images\\assignSubjectBG.jpg",
+      "Identity": "H:\\ITHubInternship\\Project\\EducationManagementSystem\\wwwroot\\Images\\addScheduleBg.jpg",
       "SourceId": "EducationManagementSystem",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\Study\\Sem-8\\Internship\\Education Management System\\EducationManagementSystem\\wwwroot\\",
+      "ContentRoot": "H:\\ITHubInternship\\Project\\EducationManagementSystem\\wwwroot\\",
+      "BasePath": "_content/EducationManagementSystem",
+      "RelativePath": "Images/addScheduleBg.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\addScheduleBg.jpg"
+    },
+    {
+      "Identity": "H:\\ITHubInternship\\Project\\EducationManagementSystem\\wwwroot\\Images\\assignSubjectBG.jpg",
+      "SourceId": "EducationManagementSystem",
+      "SourceType": "Discovered",
+      "ContentRoot": "H:\\ITHubInternship\\Project\\EducationManagementSystem\\wwwroot\\",
       "BasePath": "_content/EducationManagementSystem",
       "RelativePath": "Images/assignSubjectBG.jpg",
       "AssetKind": "All",
@@ -204,10 +238,10 @@
       "OriginalItemSpec": "wwwroot\\Images\\assignSubjectBG.jpg"
     },
     {
-      "Identity": "E:\\Study\\Sem-8\\Internship\\Education Management System\\EducationManagementSystem\\wwwroot\\Images\\dropdownimage.png",
+      "Identity": "H:\\ITHubInternship\\Project\\EducationManagementSystem\\wwwroot\\Images\\dropdownimage.png",
       "SourceId": "EducationManagementSystem",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\Study\\Sem-8\\Internship\\Education Management System\\EducationManagementSystem\\wwwroot\\",
+      "ContentRoot": "H:\\ITHubInternship\\Project\\EducationManagementSystem\\wwwroot\\",
       "BasePath": "_content/EducationManagementSystem",
       "RelativePath": "Images/dropdownimage.png",
       "AssetKind": "All",
@@ -221,10 +255,10 @@
       "OriginalItemSpec": "wwwroot\\Images\\dropdownimage.png"
     },
     {
-      "Identity": "E:\\Study\\Sem-8\\Internship\\Education Management System\\EducationManagementSystem\\wwwroot\\Images\\ems.png",
+      "Identity": "H:\\ITHubInternship\\Project\\EducationManagementSystem\\wwwroot\\Images\\ems.png",
       "SourceId": "EducationManagementSystem",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\Study\\Sem-8\\Internship\\Education Management System\\EducationManagementSystem\\wwwroot\\",
+      "ContentRoot": "H:\\ITHubInternship\\Project\\EducationManagementSystem\\wwwroot\\",
       "BasePath": "_content/EducationManagementSystem",
       "RelativePath": "Images/ems.png",
       "AssetKind": "All",
@@ -238,10 +272,10 @@
       "OriginalItemSpec": "wwwroot\\Images\\ems.png"
     },
     {
-      "Identity": "E:\\Study\\Sem-8\\Internship\\Education Management System\\EducationManagementSystem\\wwwroot\\Images\\favicon.ico",
+      "Identity": "H:\\ITHubInternship\\Project\\EducationManagementSystem\\wwwroot\\Images\\favicon.ico",
       "SourceId": "EducationManagementSystem",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\Study\\Sem-8\\Internship\\Education Management System\\EducationManagementSystem\\wwwroot\\",
+      "ContentRoot": "H:\\ITHubInternship\\Project\\EducationManagementSystem\\wwwroot\\",
       "BasePath": "_content/EducationManagementSystem",
       "RelativePath": "Images/favicon.ico",
       "AssetKind": "All",
@@ -255,10 +289,10 @@
       "OriginalItemSpec": "wwwroot\\Images\\favicon.ico"
     },
     {
-      "Identity": "E:\\Study\\Sem-8\\Internship\\Education Management System\\EducationManagementSystem\\wwwroot\\Images\\footerLogo.png",
+      "Identity": "H:\\ITHubInternship\\Project\\EducationManagementSystem\\wwwroot\\Images\\footerLogo.png",
       "SourceId": "EducationManagementSystem",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\Study\\Sem-8\\Internship\\Education Management System\\EducationManagementSystem\\wwwroot\\",
+      "ContentRoot": "H:\\ITHubInternship\\Project\\EducationManagementSystem\\wwwroot\\",
       "BasePath": "_content/EducationManagementSystem",
       "RelativePath": "Images/footerLogo.png",
       "AssetKind": "All",
@@ -272,10 +306,10 @@
       "OriginalItemSpec": "wwwroot\\Images\\footerLogo.png"
     },
     {
-      "Identity": "E:\\Study\\Sem-8\\Internship\\Education Management System\\EducationManagementSystem\\wwwroot\\Images\\logo.png",
+      "Identity": "H:\\ITHubInternship\\Project\\EducationManagementSystem\\wwwroot\\Images\\logo.png",
       "SourceId": "EducationManagementSystem",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\Study\\Sem-8\\Internship\\Education Management System\\EducationManagementSystem\\wwwroot\\",
+      "ContentRoot": "H:\\ITHubInternship\\Project\\EducationManagementSystem\\wwwroot\\",
       "BasePath": "_content/EducationManagementSystem",
       "RelativePath": "Images/logo.png",
       "AssetKind": "All",
@@ -289,10 +323,10 @@
       "OriginalItemSpec": "wwwroot\\Images\\logo.png"
     },
     {
-      "Identity": "E:\\Study\\Sem-8\\Internship\\Education Management System\\EducationManagementSystem\\wwwroot\\Images\\notFound.png",
+      "Identity": "H:\\ITHubInternship\\Project\\EducationManagementSystem\\wwwroot\\Images\\notFound.png",
       "SourceId": "EducationManagementSystem",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\Study\\Sem-8\\Internship\\Education Management System\\EducationManagementSystem\\wwwroot\\",
+      "ContentRoot": "H:\\ITHubInternship\\Project\\EducationManagementSystem\\wwwroot\\",
       "BasePath": "_content/EducationManagementSystem",
       "RelativePath": "Images/notFound.png",
       "AssetKind": "All",
@@ -306,10 +340,10 @@
       "OriginalItemSpec": "wwwroot\\Images\\notFound.png"
     },
     {
-      "Identity": "E:\\Study\\Sem-8\\Internship\\Education Management System\\EducationManagementSystem\\wwwroot\\JS\\AddSubject.js",
+      "Identity": "H:\\ITHubInternship\\Project\\EducationManagementSystem\\wwwroot\\JS\\AddSubject.js",
       "SourceId": "EducationManagementSystem",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\Study\\Sem-8\\Internship\\Education Management System\\EducationManagementSystem\\wwwroot\\",
+      "ContentRoot": "H:\\ITHubInternship\\Project\\EducationManagementSystem\\wwwroot\\",
       "BasePath": "_content/EducationManagementSystem",
       "RelativePath": "JS/AddSubject.js",
       "AssetKind": "All",
@@ -323,10 +357,10 @@
       "OriginalItemSpec": "wwwroot\\JS\\AddSubject.js"
     },
     {
-      "Identity": "E:\\Study\\Sem-8\\Internship\\Education Management System\\EducationManagementSystem\\wwwroot\\JS\\addUser.js",
+      "Identity": "H:\\ITHubInternship\\Project\\EducationManagementSystem\\wwwroot\\JS\\addUser.js",
       "SourceId": "EducationManagementSystem",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\Study\\Sem-8\\Internship\\Education Management System\\EducationManagementSystem\\wwwroot\\",
+      "ContentRoot": "H:\\ITHubInternship\\Project\\EducationManagementSystem\\wwwroot\\",
       "BasePath": "_content/EducationManagementSystem",
       "RelativePath": "JS/addUser.js",
       "AssetKind": "All",
@@ -340,10 +374,10 @@
       "OriginalItemSpec": "wwwroot\\JS\\addUser.js"
     },
     {
-      "Identity": "E:\\Study\\Sem-8\\Internship\\Education Management System\\EducationManagementSystem\\wwwroot\\JS\\assignSunject.js",
+      "Identity": "H:\\ITHubInternship\\Project\\EducationManagementSystem\\wwwroot\\JS\\assignSunject.js",
       "SourceId": "EducationManagementSystem",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\Study\\Sem-8\\Internship\\Education Management System\\EducationManagementSystem\\wwwroot\\",
+      "ContentRoot": "H:\\ITHubInternship\\Project\\EducationManagementSystem\\wwwroot\\",
       "BasePath": "_content/EducationManagementSystem",
       "RelativePath": "JS/assignSunject.js",
       "AssetKind": "All",
@@ -357,10 +391,10 @@
       "OriginalItemSpec": "wwwroot\\JS\\assignSunject.js"
     },
     {
-      "Identity": "E:\\Study\\Sem-8\\Internship\\Education Management System\\EducationManagementSystem\\wwwroot\\JS\\index.js",
+      "Identity": "H:\\ITHubInternship\\Project\\EducationManagementSystem\\wwwroot\\JS\\index.js",
       "SourceId": "EducationManagementSystem",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\Study\\Sem-8\\Internship\\Education Management System\\EducationManagementSystem\\wwwroot\\",
+      "ContentRoot": "H:\\ITHubInternship\\Project\\EducationManagementSystem\\wwwroot\\",
       "BasePath": "_content/EducationManagementSystem",
       "RelativePath": "JS/index.js",
       "AssetKind": "All",
@@ -374,10 +408,10 @@
       "OriginalItemSpec": "wwwroot\\JS\\index.js"
     },
     {
-      "Identity": "E:\\Study\\Sem-8\\Internship\\Education Management System\\EducationManagementSystem\\wwwroot\\JS\\login.js",
+      "Identity": "H:\\ITHubInternship\\Project\\EducationManagementSystem\\wwwroot\\JS\\login.js",
       "SourceId": "EducationManagementSystem",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\Study\\Sem-8\\Internship\\Education Management System\\EducationManagementSystem\\wwwroot\\",
+      "ContentRoot": "H:\\ITHubInternship\\Project\\EducationManagementSystem\\wwwroot\\",
       "BasePath": "_content/EducationManagementSystem",
       "RelativePath": "JS/login.js",
       "AssetKind": "All",
@@ -391,10 +425,10 @@
       "OriginalItemSpec": "wwwroot\\JS\\login.js"
     },
     {
-      "Identity": "E:\\Study\\Sem-8\\Internship\\Education Management System\\EducationManagementSystem\\wwwroot\\JS\\signup.js",
+      "Identity": "H:\\ITHubInternship\\Project\\EducationManagementSystem\\wwwroot\\JS\\signup.js",
       "SourceId": "EducationManagementSystem",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\Study\\Sem-8\\Internship\\Education Management System\\EducationManagementSystem\\wwwroot\\",
+      "ContentRoot": "H:\\ITHubInternship\\Project\\EducationManagementSystem\\wwwroot\\",
       "BasePath": "_content/EducationManagementSystem",
       "RelativePath": "JS/signup.js",
       "AssetKind": "All",
@@ -408,10 +442,27 @@
       "OriginalItemSpec": "wwwroot\\JS\\signup.js"
     },
     {
-      "Identity": "E:\\Study\\Sem-8\\Internship\\Education Management System\\EducationManagementSystem\\wwwroot\\JS\\vanilla-tilt.min.js",
+      "Identity": "H:\\ITHubInternship\\Project\\EducationManagementSystem\\wwwroot\\JS\\teacherDashboard.js",
       "SourceId": "EducationManagementSystem",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\Study\\Sem-8\\Internship\\Education Management System\\EducationManagementSystem\\wwwroot\\",
+      "ContentRoot": "H:\\ITHubInternship\\Project\\EducationManagementSystem\\wwwroot\\",
+      "BasePath": "_content/EducationManagementSystem",
+      "RelativePath": "JS/teacherDashboard.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\JS\\teacherDashboard.js"
+    },
+    {
+      "Identity": "H:\\ITHubInternship\\Project\\EducationManagementSystem\\wwwroot\\JS\\vanilla-tilt.min.js",
+      "SourceId": "EducationManagementSystem",
+      "SourceType": "Discovered",
+      "ContentRoot": "H:\\ITHubInternship\\Project\\EducationManagementSystem\\wwwroot\\",
       "BasePath": "_content/EducationManagementSystem",
       "RelativePath": "JS/vanilla-tilt.min.js",
       "AssetKind": "All",
@@ -425,10 +476,10 @@
       "OriginalItemSpec": "wwwroot\\JS\\vanilla-tilt.min.js"
     },
     {
-      "Identity": "E:\\Study\\Sem-8\\Internship\\Education Management System\\EducationManagementSystem\\wwwroot\\ProfilePicture\\05178026-ac54-460d-a556-31728b9da3eddesign.png",
+      "Identity": "H:\\ITHubInternship\\Project\\EducationManagementSystem\\wwwroot\\ProfilePicture\\05178026-ac54-460d-a556-31728b9da3eddesign.png",
       "SourceId": "EducationManagementSystem",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\Study\\Sem-8\\Internship\\Education Management System\\EducationManagementSystem\\wwwroot\\",
+      "ContentRoot": "H:\\ITHubInternship\\Project\\EducationManagementSystem\\wwwroot\\",
       "BasePath": "_content/EducationManagementSystem",
       "RelativePath": "ProfilePicture/05178026-ac54-460d-a556-31728b9da3eddesign.png",
       "AssetKind": "All",
@@ -442,10 +493,10 @@
       "OriginalItemSpec": "wwwroot\\ProfilePicture\\05178026-ac54-460d-a556-31728b9da3eddesign.png"
     },
     {
-      "Identity": "E:\\Study\\Sem-8\\Internship\\Education Management System\\EducationManagementSystem\\wwwroot\\ProfilePicture\\2d7c0c1a-b574-4427-97ca-b9031a207c2bIMG_20190706_110513.jpg",
+      "Identity": "H:\\ITHubInternship\\Project\\EducationManagementSystem\\wwwroot\\ProfilePicture\\2d7c0c1a-b574-4427-97ca-b9031a207c2bIMG_20190706_110513.jpg",
       "SourceId": "EducationManagementSystem",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\Study\\Sem-8\\Internship\\Education Management System\\EducationManagementSystem\\wwwroot\\",
+      "ContentRoot": "H:\\ITHubInternship\\Project\\EducationManagementSystem\\wwwroot\\",
       "BasePath": "_content/EducationManagementSystem",
       "RelativePath": "ProfilePicture/2d7c0c1a-b574-4427-97ca-b9031a207c2bIMG_20190706_110513.jpg",
       "AssetKind": "All",
@@ -459,10 +510,10 @@
       "OriginalItemSpec": "wwwroot\\ProfilePicture\\2d7c0c1a-b574-4427-97ca-b9031a207c2bIMG_20190706_110513.jpg"
     },
     {
-      "Identity": "E:\\Study\\Sem-8\\Internship\\Education Management System\\EducationManagementSystem\\wwwroot\\ProfilePicture\\37be0486-eb1b-451f-a74b-56637af44c21Screenshot (1).png",
+      "Identity": "H:\\ITHubInternship\\Project\\EducationManagementSystem\\wwwroot\\ProfilePicture\\37be0486-eb1b-451f-a74b-56637af44c21Screenshot (1).png",
       "SourceId": "EducationManagementSystem",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\Study\\Sem-8\\Internship\\Education Management System\\EducationManagementSystem\\wwwroot\\",
+      "ContentRoot": "H:\\ITHubInternship\\Project\\EducationManagementSystem\\wwwroot\\",
       "BasePath": "_content/EducationManagementSystem",
       "RelativePath": "ProfilePicture/37be0486-eb1b-451f-a74b-56637af44c21Screenshot (1).png",
       "AssetKind": "All",
@@ -476,10 +527,10 @@
       "OriginalItemSpec": "wwwroot\\ProfilePicture\\37be0486-eb1b-451f-a74b-56637af44c21Screenshot (1).png"
     },
     {
-      "Identity": "E:\\Study\\Sem-8\\Internship\\Education Management System\\EducationManagementSystem\\wwwroot\\ProfilePicture\\48840c9f-ab00-4d63-8cdf-0c144a67f53fPhoto.jpg",
+      "Identity": "H:\\ITHubInternship\\Project\\EducationManagementSystem\\wwwroot\\ProfilePicture\\48840c9f-ab00-4d63-8cdf-0c144a67f53fPhoto.jpg",
       "SourceId": "EducationManagementSystem",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\Study\\Sem-8\\Internship\\Education Management System\\EducationManagementSystem\\wwwroot\\",
+      "ContentRoot": "H:\\ITHubInternship\\Project\\EducationManagementSystem\\wwwroot\\",
       "BasePath": "_content/EducationManagementSystem",
       "RelativePath": "ProfilePicture/48840c9f-ab00-4d63-8cdf-0c144a67f53fPhoto.jpg",
       "AssetKind": "All",
@@ -493,10 +544,10 @@
       "OriginalItemSpec": "wwwroot\\ProfilePicture\\48840c9f-ab00-4d63-8cdf-0c144a67f53fPhoto.jpg"
     },
     {
-      "Identity": "E:\\Study\\Sem-8\\Internship\\Education Management System\\EducationManagementSystem\\wwwroot\\ProfilePicture\\52bd97f5-3c73-4caf-8137-562ef17095d9design.png",
+      "Identity": "H:\\ITHubInternship\\Project\\EducationManagementSystem\\wwwroot\\ProfilePicture\\52bd97f5-3c73-4caf-8137-562ef17095d9design.png",
       "SourceId": "EducationManagementSystem",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\Study\\Sem-8\\Internship\\Education Management System\\EducationManagementSystem\\wwwroot\\",
+      "ContentRoot": "H:\\ITHubInternship\\Project\\EducationManagementSystem\\wwwroot\\",
       "BasePath": "_content/EducationManagementSystem",
       "RelativePath": "ProfilePicture/52bd97f5-3c73-4caf-8137-562ef17095d9design.png",
       "AssetKind": "All",
@@ -510,27 +561,10 @@
       "OriginalItemSpec": "wwwroot\\ProfilePicture\\52bd97f5-3c73-4caf-8137-562ef17095d9design.png"
     },
     {
-      "Identity": "E:\\Study\\Sem-8\\Internship\\Education Management System\\EducationManagementSystem\\wwwroot\\ProfilePicture\\5cbaf4aa-3370-4074-b25b-3e3d86eae2dd00100sPORTRAIT_00100_BURST20210211161406552_COVER.jpg",
+      "Identity": "H:\\ITHubInternship\\Project\\EducationManagementSystem\\wwwroot\\ProfilePicture\\77219c37-72a4-48be-82b6-cbbbadd3983fIMG-20180604-WA0000.jpg",
       "SourceId": "EducationManagementSystem",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\Study\\Sem-8\\Internship\\Education Management System\\EducationManagementSystem\\wwwroot\\",
-      "BasePath": "_content/EducationManagementSystem",
-      "RelativePath": "ProfilePicture/5cbaf4aa-3370-4074-b25b-3e3d86eae2dd00100sPORTRAIT_00100_BURST20210211161406552_COVER.jpg",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\ProfilePicture\\5cbaf4aa-3370-4074-b25b-3e3d86eae2dd00100sPORTRAIT_00100_BURST20210211161406552_COVER.jpg"
-    },
-    {
-      "Identity": "E:\\Study\\Sem-8\\Internship\\Education Management System\\EducationManagementSystem\\wwwroot\\ProfilePicture\\77219c37-72a4-48be-82b6-cbbbadd3983fIMG-20180604-WA0000.jpg",
-      "SourceId": "EducationManagementSystem",
-      "SourceType": "Discovered",
-      "ContentRoot": "E:\\Study\\Sem-8\\Internship\\Education Management System\\EducationManagementSystem\\wwwroot\\",
+      "ContentRoot": "H:\\ITHubInternship\\Project\\EducationManagementSystem\\wwwroot\\",
       "BasePath": "_content/EducationManagementSystem",
       "RelativePath": "ProfilePicture/77219c37-72a4-48be-82b6-cbbbadd3983fIMG-20180604-WA0000.jpg",
       "AssetKind": "All",
@@ -544,10 +578,10 @@
       "OriginalItemSpec": "wwwroot\\ProfilePicture\\77219c37-72a4-48be-82b6-cbbbadd3983fIMG-20180604-WA0000.jpg"
     },
     {
-      "Identity": "E:\\Study\\Sem-8\\Internship\\Education Management System\\EducationManagementSystem\\wwwroot\\ProfilePicture\\926094f1-9a8d-426a-acd2-0d2625247f79Screenshot (1).png",
+      "Identity": "H:\\ITHubInternship\\Project\\EducationManagementSystem\\wwwroot\\ProfilePicture\\926094f1-9a8d-426a-acd2-0d2625247f79Screenshot (1).png",
       "SourceId": "EducationManagementSystem",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\Study\\Sem-8\\Internship\\Education Management System\\EducationManagementSystem\\wwwroot\\",
+      "ContentRoot": "H:\\ITHubInternship\\Project\\EducationManagementSystem\\wwwroot\\",
       "BasePath": "_content/EducationManagementSystem",
       "RelativePath": "ProfilePicture/926094f1-9a8d-426a-acd2-0d2625247f79Screenshot (1).png",
       "AssetKind": "All",
@@ -561,10 +595,10 @@
       "OriginalItemSpec": "wwwroot\\ProfilePicture\\926094f1-9a8d-426a-acd2-0d2625247f79Screenshot (1).png"
     },
     {
-      "Identity": "E:\\Study\\Sem-8\\Internship\\Education Management System\\EducationManagementSystem\\wwwroot\\ProfilePicture\\f754b7c8-9de3-483d-9af7-edb826091b0fPhoto.jpg",
+      "Identity": "H:\\ITHubInternship\\Project\\EducationManagementSystem\\wwwroot\\ProfilePicture\\f754b7c8-9de3-483d-9af7-edb826091b0fPhoto.jpg",
       "SourceId": "EducationManagementSystem",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\Study\\Sem-8\\Internship\\Education Management System\\EducationManagementSystem\\wwwroot\\",
+      "ContentRoot": "H:\\ITHubInternship\\Project\\EducationManagementSystem\\wwwroot\\",
       "BasePath": "_content/EducationManagementSystem",
       "RelativePath": "ProfilePicture/f754b7c8-9de3-483d-9af7-edb826091b0fPhoto.jpg",
       "AssetKind": "All",
@@ -576,40 +610,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\ProfilePicture\\f754b7c8-9de3-483d-9af7-edb826091b0fPhoto.jpg"
-    },
-    {
-      "Identity": "E:\\Study\\Sem-8\\Internship\\Education Management System\\EducationManagementSystem\\wwwroot\\Uploads\\LectureScheduls\\0cd1c912-bd89-4891-bf0d-afa4d7bc6d24Fee .pdf",
-      "SourceId": "EducationManagementSystem",
-      "SourceType": "Discovered",
-      "ContentRoot": "E:\\Study\\Sem-8\\Internship\\Education Management System\\EducationManagementSystem\\wwwroot\\",
-      "BasePath": "_content/EducationManagementSystem",
-      "RelativePath": "Uploads/LectureScheduls/0cd1c912-bd89-4891-bf0d-afa4d7bc6d24Fee .pdf",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Uploads\\LectureScheduls\\0cd1c912-bd89-4891-bf0d-afa4d7bc6d24Fee .pdf"
-    },
-    {
-      "Identity": "E:\\Study\\Sem-8\\Internship\\Education Management System\\EducationManagementSystem\\wwwroot\\Uploads\\LectureScheduls\\a52d5336-29de-4935-8c6d-659b54515edeDigital_report.pdf",
-      "SourceId": "EducationManagementSystem",
-      "SourceType": "Discovered",
-      "ContentRoot": "E:\\Study\\Sem-8\\Internship\\Education Management System\\EducationManagementSystem\\wwwroot\\",
-      "BasePath": "_content/EducationManagementSystem",
-      "RelativePath": "Uploads/LectureScheduls/a52d5336-29de-4935-8c6d-659b54515edeDigital_report.pdf",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Uploads\\LectureScheduls\\a52d5336-29de-4935-8c6d-659b54515edeDigital_report.pdf"
     }
   ]
 }

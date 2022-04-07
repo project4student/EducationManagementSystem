@@ -11,7 +11,7 @@ builder.Services.AddScoped<Email>();
 
 builder.Services.AddDbContextPool<EMSContext>(option =>
 {
-    option.UseSqlServer(builder.Configuration.GetConnectionString("DBConnection"));
+	option.UseSqlServer(builder.Configuration.GetConnectionString("DBConnection"));
 }
 );
 
@@ -22,10 +22,10 @@ builder.Services.AddIdentity<Users, IdentityRole>()
 
 var app = builder.Build();
 var env = builder.Environment;
-if (env.IsDevelopment())
-{
-    app.UseDeveloperExceptionPage();
-}
+// if (env.IsDevelopment())
+// {
+// 	app.UseDeveloperExceptionPage();
+// }
 app.UseStatusCodePagesWithReExecute("/Error/{0}");
 
 app.UseFileServer();

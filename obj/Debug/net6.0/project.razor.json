@@ -1,5 +1,5 @@
 {
-  "FilePath": "e:\\Study\\Sem-8\\Internship\\Education Management System\\EducationManagementSystem\\EducationManagementSystem.csproj",
+  "FilePath": "h:\\ITHubInternship\\Project\\EducationManagementSystem\\EducationManagementSystem.csproj",
   "Configuration": {
     "ConfigurationName": "MVC-3.0",
     "LanguageVersion": "6.0",
@@ -16298,53 +16298,83 @@
   "RootNamespace": "EducationManagementSystem",
   "Documents": [
     {
-      "FilePath": "e:\\Study\\Sem-8\\Internship\\Education Management System\\EducationManagementSystem\\Views\\_ViewImports.cshtml",
+      "FilePath": "h:\\ITHubInternship\\Project\\EducationManagementSystem\\Views\\_ViewImports.cshtml",
       "TargetPath": "Views\\_ViewImports.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "e:\\Study\\Sem-8\\Internship\\Education Management System\\EducationManagementSystem\\Views\\Account\\CreateUser.cshtml",
-      "TargetPath": "Views\\Account\\CreateUser.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "e:\\Study\\Sem-8\\Internship\\Education Management System\\EducationManagementSystem\\Views\\_ViewStart.cshtml",
-      "TargetPath": "Views\\_ViewStart.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "e:\\Study\\Sem-8\\Internship\\Education Management System\\EducationManagementSystem\\Views\\Home\\Index.cshtml",
+      "FilePath": "h:\\ITHubInternship\\Project\\EducationManagementSystem\\Views\\Home\\Index.cshtml",
       "TargetPath": "Views\\Home\\Index.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "e:\\Study\\Sem-8\\Internship\\Education Management System\\EducationManagementSystem\\Views\\Admin\\AddSchedules.cshtml",
-      "TargetPath": "Views\\Admin\\AddSchedules.cshtml",
+      "FilePath": "h:\\ITHubInternship\\Project\\EducationManagementSystem\\Views\\_ViewStart.cshtml",
+      "TargetPath": "Views\\_ViewStart.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "e:\\Study\\Sem-8\\Internship\\Education Management System\\EducationManagementSystem\\Views\\Admin\\AssignSubject.cshtml",
+      "FilePath": "h:\\ITHubInternship\\Project\\EducationManagementSystem\\Views\\Teacher\\_ViewStart.cshtml",
+      "TargetPath": "Views\\Teacher\\_ViewStart.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "h:\\ITHubInternship\\Project\\EducationManagementSystem\\Views\\Error\\404.cshtml",
+      "TargetPath": "Views\\Error\\404.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "h:\\ITHubInternship\\Project\\EducationManagementSystem\\Views\\Teacher\\Index.cshtml",
+      "TargetPath": "Views\\Teacher\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "h:\\ITHubInternship\\Project\\EducationManagementSystem\\Views\\Admin\\AssignSubject.cshtml",
       "TargetPath": "Views\\Admin\\AssignSubject.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "e:\\Study\\Sem-8\\Internship\\Education Management System\\EducationManagementSystem\\Views\\Student\\IdCard.cshtml",
-      "TargetPath": "Views\\Student\\IdCard.cshtml",
+      "FilePath": "h:\\ITHubInternship\\Project\\EducationManagementSystem\\Views\\Admin\\AddSchedules.cshtml",
+      "TargetPath": "Views\\Admin\\AddSchedules.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "e:\\Study\\Sem-8\\Internship\\Education Management System\\EducationManagementSystem\\Views\\Account\\Login.cshtml",
-      "TargetPath": "Views\\Account\\Login.cshtml",
+      "FilePath": "h:\\ITHubInternship\\Project\\EducationManagementSystem\\Views\\Teacher\\AssignHomework.cshtml",
+      "TargetPath": "Views\\Teacher\\AssignHomework.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "e:\\Study\\Sem-8\\Internship\\Education Management System\\EducationManagementSystem\\Views\\Admin\\GetScheduleList.cshtml",
+      "FilePath": "h:\\ITHubInternship\\Project\\EducationManagementSystem\\Views\\Admin\\GetScheduleList.cshtml",
       "TargetPath": "Views\\Admin\\GetScheduleList.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "e:\\Study\\Sem-8\\Internship\\Education Management System\\EducationManagementSystem\\Views\\Shared\\_Layout.cshtml",
+      "FilePath": "h:\\ITHubInternship\\Project\\EducationManagementSystem\\Views\\Account\\Login.cshtml",
+      "TargetPath": "Views\\Account\\Login.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "h:\\ITHubInternship\\Project\\EducationManagementSystem\\Views\\Shared\\_TeacherLayout.cshtml",
+      "TargetPath": "Views\\Shared\\_TeacherLayout.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "h:\\ITHubInternship\\Project\\EducationManagementSystem\\Views\\Student\\IdCard.cshtml",
+      "TargetPath": "Views\\Student\\IdCard.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "h:\\ITHubInternship\\Project\\EducationManagementSystem\\Views\\Account\\CreateUser.cshtml",
+      "TargetPath": "Views\\Account\\CreateUser.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "h:\\ITHubInternship\\Project\\EducationManagementSystem\\Views\\Shared\\_Layout.cshtml",
       "TargetPath": "Views\\Shared\\_Layout.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "h:\\ITHubInternship\\Project\\EducationManagementSystem\\Views\\Account\\AccessDenied.cshtml",
+      "TargetPath": "Views\\Account\\AccessDenied.cshtml",
       "FileKind": "mvc"
     }
   ],

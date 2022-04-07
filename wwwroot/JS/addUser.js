@@ -5,8 +5,22 @@ $("#DateOfBirth").datepicker({
 	showAnim: "slideDown",
 	dateFormat: "dd/mm/yy",
 });
-
+$.validator.addMethod(
+	"isImage",
+	(value, element) => {
+		console.log(element.files);
+		return element.files.length > 0 && element.files[0].type.match(/image\/*/) ? true : false;
+	},
+	"Select only Image Files"
+);
 $("#addUserForm button[type='submit']").click(async (e) => {
+	$("#ProfilePicture").rules("add", {
+		required: true,
+		isImage: true,
+		message: {
+			required: "Choose Profile Picture",
+		},
+	});
 	if ($("#UserTypeId").val() == "1") {
 		$("#RollNumber").rules("add", {
 			required: true,

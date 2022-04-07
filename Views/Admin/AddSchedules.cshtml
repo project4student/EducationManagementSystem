@@ -1,84 +1,85 @@
-<div class="container-fluid pb-5 pt-3">
-    <h1 class="fs-large text-center mb-0 py-3">Upload Schedules</h1>
-    <form class="glass mt-1 p-4 rounded-1" id="scheduleForm" style="max-width: 576px;">
-        <div class="mb-3">
-            <label class="mb-2" for="Class">Select Class</label>
-            <select class="form-select" name="Class" id="Class">
-                <option value="">Select Class</option>
-                @for (int i = 1; i < 11; i++)
-                {
-                    <option value="@i">Class @i</option>
-                }
-            </select>
-        </div>
-        <div class="mb-3">
-            <label class="mb-1" for="Type">Select Type of Schedule</label>
-            <select class="form-select" name="Type" id="Type">
-                <option value="">Select Schedule Type</option>
-                <option value="1">Lecture Schedule</option>
-                <option value="2">Exam Schedule</option>
-            </select>
-        </div>
-        <div class="mb-3">
-            <label class="mb-1" for="scheduleFile">Choose File</label>
-            <input type="file" class="form-control" name="scheduleFile" id="scheduleFile">
-        </div>
-        <div class="mb-1">
-            <button class="btn btn-outline-warning rounded-0" type="submit">Upload</button>
-        </div>
-    </form>
+<div class="container-fluid pb-5 pt-3 addScheduleContainer">
+	<h1 class="fs-large text-center mb-0 py-3">Upload Schedules</h1>
+	<form class="glass mt-1 p-4 rounded-1" id="scheduleForm" style="max-width: 576px;">
+		<div class="mb-3">
+			<label class="mb-2" for="Class">Select Class</label>
+			<select class="form-select" name="Class" id="Class">
+				<option value="">Select Class</option>
+				@for (int i = 1; i < 11; i++)
+				{
+					<option value="@i">Class @i</option>
+				}
+			</select>
+		</div>
+		<div class="mb-3">
+			<label class="mb-1" for="Type">Select Type of Schedule</label>
+			<select class="form-select" name="Type" id="Type">
+				<option value="">Select Schedule Type</option>
+				<option value="1">Lecture Schedule</option>
+				<option value="2">Exam Schedule</option>
+			</select>
+		</div>
+		<div class="mb-3">
+			<label class="mb-1" for="scheduleFile">Choose File</label>
+			<input type="file" class="form-control" name="scheduleFile" id="scheduleFile">
+		</div>
+		<div class="mb-1">
+			<button class="btn btn-outline-warning rounded-0" type="submit">Upload</button>
+		</div>
+	</form>
 </div>
 @section CustomScripts{
 <script>
-    $("#scheduleForm button[type='submit']").click(async (e) => {
-        const validator = $("#scheduleForm").validate();
-        $.validator.addMethod('isPDF', (value, element) => {
-            return ((value.split(".")[1].toLowerCase() === "pdf") ? true : false)
-        }, "Select only PDF Files")
-        $("#Class").rules("add", {
-            required: true,
-            messages: {
-                required: "Select Class",
-            }
-        })
-        $("#Type").rules("add", {
-            required: true,
-            messages: {
-                required: "Select Type of Schedule",
-            }
-        })
-        $("#scheduleFile").rules("add", {
-            required: true,
-            isPDF: true,
-            messages: {
-                required: "Choose Schedule File",
-            }
-        })
-        if (validator.form()) {
-            e.preventDefault();
-            const formData = new FormData($("#scheduleForm")[0]);
-            try {
-                loading(true);
-                const res = await fetch("/Admin/Schedules", {
-                    method: "POST",
-                    body: formData,
-                });
-                const resJson = await res.json();
-                console.log(resJson);
-                if (res.redirected) window.location.href = res.url;
-                loading(false);
-                if (resJson.success) {
-                    showToast("success", resJson.success);
-                    $("#scheduleForm").trigger("reset");
-                } else {
-                    showToast("danger", resJson.err);
-                }
-            } catch (error) {
-                console.log(error.message);
-                loading(false);
-                showToast("danger", "Internal Server Error!");
-            }
-        }
-    });
+	$("#scheduleForm button[type='submit']").click(async (e) => {
+		const validator = $("#scheduleForm").validate();
+		$.validator.addMethod('isPDF', (value, element) => {
+			console.log(element.files);
+			return ((element.files.length > 0 && element.files[0].type == "application/pdf") ? true : false)
+		}, "Select only PDF Files")
+		$("#Class").rules("add", {
+			required: true,
+			messages: {
+				required: "Select Class",
+			}
+		})
+		$("#Type").rules("add", {
+			required: true,
+			messages: {
+				required: "Select Type of Schedule",
+			}
+		})
+		$("#scheduleFile").rules("add", {
+			required: true,
+			isPDF: true,
+			messages: {
+				required: "Choose Schedule File",
+			}
+		})
+		if (validator.form()) {
+			e.preventDefault();
+			const formData = new FormData($("#scheduleForm")[0]);
+			try {
+				loading(true);
+				const res = await fetch("/Admin/Schedules", {
+					method: "POST",
+					body: formData,
+				});
+				const resJson = await res.json();
+				console.log(resJson);
+				if (res.redirected) window.location.href = res.url;
+				loading(false);
+				if (resJson.success) {
+					showToast("success", resJson.success);
+					$("#scheduleForm").trigger("reset");
+				} else {
+					showToast("danger", resJson.err);
+				}
+			} catch (error) {
+				console.log(error.message);
+				loading(false);
+				showToast("danger", "Internal Server Error!");
+			}
+		}
+	});
 </script>
 }
