@@ -1,16 +1,15 @@
 .cardContainer {
 	position: relative;
-	width: 350px;
-	height: 350px;
-	border-radius: 1000px;
+	width: 300px;
+	height: 300px;
 	background: #30bfa5;
 	transition: all 0.5s;
+	border-radius: 15px;
 }
 
 .cardContainer.open {
 	width: 1150px;
 	height: 740px;
-	border-radius: 15px;
 }
 
 .closeBtn {
