@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "H:\\ITHubInternship\\Project\\EducationManagementSystem\\EducationManagementSystem.csproj": {}
+    "E:\\Study\\Sem-8\\Internship\\Education Management System\\EducationManagementSystem\\EducationManagementSystem.csproj": {}
   },
   "projects": {
-    "H:\\ITHubInternship\\Project\\EducationManagementSystem\\EducationManagementSystem.csproj": {
+    "E:\\Study\\Sem-8\\Internship\\Education Management System\\EducationManagementSystem\\EducationManagementSystem.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "H:\\ITHubInternship\\Project\\EducationManagementSystem\\EducationManagementSystem.csproj",
+        "projectUniqueName": "E:\\Study\\Sem-8\\Internship\\Education Management System\\EducationManagementSystem\\EducationManagementSystem.csproj",
         "projectName": "EducationManagementSystem",
-        "projectPath": "H:\\ITHubInternship\\Project\\EducationManagementSystem\\EducationManagementSystem.csproj",
+        "projectPath": "E:\\Study\\Sem-8\\Internship\\Education Management System\\EducationManagementSystem\\EducationManagementSystem.csproj",
         "packagesPath": "C:\\Users\\gohil\\.nuget\\packages\\",
-        "outputPath": "H:\\ITHubInternship\\Project\\EducationManagementSystem\\obj\\",
+        "outputPath": "E:\\Study\\Sem-8\\Internship\\Education Management System\\EducationManagementSystem\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\gohil\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -73,7 +73,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
         }
       }
     }

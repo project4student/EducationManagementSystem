@@ -60,7 +60,7 @@
 			const formData = new FormData($("#scheduleForm")[0]);
 			try {
 				loading(true);
-				const res = await fetch("/Admin/Schedules", {
+				const res = await fetch("/Admin/AddSchedules", {
 					method: "POST",
 					body: formData,
 				});

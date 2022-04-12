@@ -78,13 +78,14 @@ public class AdminController : Controller
 				if (scheduleFile != null)
 				{
 					var uploadedFile = "Uploads/LectureScheduls/";
-					uploadedFile += Guid.NewGuid().ToString() + scheduleFile.FileName;
+					uploadedFile += Guid.NewGuid().ToString() + "_" + scheduleFile.FileName;
 					var serverFolder = Path.Combine(webHostEnvironment.WebRootPath, uploadedFile);
 					using (var filestream = new FileStream(serverFolder, FileMode.Create))
 					{
 						scheduleFile.CopyTo(filestream);
 					}
 					schedules.FilePath = uploadedFile;
+					schedules.UploadedDate = DateTime.Now;
 					context.Schedules.Add(schedules);
 					context.SaveChanges();
 					return Json(new { success = "Schedule Uploaded Successfuly" });
@@ -100,18 +101,20 @@ public class AdminController : Controller
 	}
 	public IActionResult GetScheduleList()
 	{
-		return View();
+		var schedule = context.Schedules.ToList();
+		return View(schedule);
 	}
 	public IActionResult GetSubjectList(int classId)
 	{
 		var Subject = context.Subject.Where(s => s.ClassId == classId).ToList();
 		return Json(new { subject = Subject });
 	}
-	public IActionResult GetSchedule()
+
+	public IActionResult GetSchedule(int Id)
 	{
-		string path = "wwwroot/Uploads/LectureScheduls/180210116017.pdf";
+		var schedule = context.Schedules.Where(s => s.Id == Id).Select(s => s.FilePath).FirstOrDefault();
+		string path = $"wwwroot/{schedule}";
 		byte[] pdf = System.IO.File.ReadAllBytes(path);
-		System.IO.File.WriteAllBytes(path, pdf);
 		MemoryStream ms = new MemoryStream(pdf);
 		return new FileStreamResult(ms, "application/pdf");
 	}

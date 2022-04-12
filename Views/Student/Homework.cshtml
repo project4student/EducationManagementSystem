@@ -1,0 +1,89 @@
+@{
+	ViewBag.PageTitle = "Homework";
+}
+@model IEnumerable<HomeworkDetailViewModel>
+<div class="rounded-2 w-100 m-0">
+	<h1 class="fs-large text-center mb-0 py-3">Homework List</h1>
+	<nav class="col-12">
+		<div class="nav nav-tabs" id="nav-tab" role="tablist">
+			<button class="nav-link  active w-50 fw-bold" id="nav-assign-tab" data-bs-toggle="tab"
+				data-bs-target="#nav-assign" type="button" role="tab" aria-controls="nav-assign"
+				aria-selected="true">Assign</button>
+			<button class="nav-link w-50 fw-bold" id="nav-submitted-tab" data-bs-toggle="tab"
+				data-bs-target="#nav-submitted" type="button" role="tab" aria-controls="nav-submitted"
+				aria-selected="false">Completed</button>
+		</div>
+	</nav>
+	<div class="tab-content glass py-3 rounded-bottom" id="tabContent">
+		@if (Model.Any())
+		{
+			<div class="tab-pane fade show active" id="nav-assign" role="tabpanel" aria-labelledby="nav-assign-tab">
+				@foreach (var h in Model.Where(h => h.student[0].SubmittedDate == null))
+				{
+					<a asp-controller="Student" asp-action="HomeworkDetail" asp-route-Id="@h.Id" asp-route-isSubmit=false
+				asp-route-SubjectName="@h.SubjectName"
+				class="d-flex justify-content-between align-items-center mx-3 px-3 py-2 mb-3 rounded-2">
+						<div>
+							<h5 class="m-0">@h.SubjectName</h5>
+							<span class="d-block">@h.Title</span>
+							<small>Assign on : @h.AssignDate.ToString("dd MMMM yyyy")</small>
+						</div>
+						<div>
+							Due Date : @h.DueDate.ToString("dd MMMM yyyy")
+						</div>
+					</a>
+				}
+				@if (!Model.Where(h => h.student[0].SubmittedDate == null).Any())
+				{
+					<div class="mt-5 text-center fs-large">No Homework Assign</div>
+				}
+			</div>
+			<div class="tab-pane fade" id="nav-submitted" role="tabpanel" aria-labelledby="nav-submitted-tab">
+				@foreach (var h in Model.Where(h => h.student[0].SubmittedDate != null))
+				{
+					<a asp-controller="Student" asp-action="HomeworkDetail" asp-route-Id="@h.Id"
+				asp-route-SubjectName="@h.SubjectName" asp-route-isSubmit="true"
+				class="d-flex justify-content-between align-items-center mx-3 px-3 py-2 mb-3 rounded-2">
+						<div>
+							<h5 class="m-0">@h.SubjectName</h5>
+							<span class="d-block">@h.Title</span>
+							<small>Assign on : @h.AssignDate.ToString("dd MMMM yyyy")</small>
+						</div>
+						<div>
+							Completed on : @h.student[0].SubmittedDate.Value.ToString("dd MMMM yyyy")
+						</div>
+					</a>
+				}
+				@if (!Model.Where(h => h.student[0].SubmittedDate != null).Any())
+				{
+					<div class="mt-5 text-center fs-large">No Completed Homework Found</div>
+				}
+			</div>
+		}
+	</div>
+</div>
+@section CSS{
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+	integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+	crossorigin="anonymous" referrerpolicy="no-referrer"   />
+<style>
+	.tab-content {
+		@*border:1pxsolidwhite;*@border-top-color: transparent;
+	}
+
+	.tab-pane>a {
+		color: white;
+		text-decoration: none;
+		box-shadow: -5px -5px 15px rgba(255, 255, 255, 0.1), 10px 10px 10px rgba(0, 0, 0, 0.75);
+	}
+</style>
+}
+@section CustomScripts{
+<script>
+	var tabContent = document.querySelector("#tabContent")
+	tabContent.style.minHeight = `${window.innerHeight - document.querySelector(".navbar").clientHeight - document.querySelector("h1.fs-large").clientHeight - document.querySelector("h1.fs-large + nav").clientHeight - 50}px`
+	window.addEventListener("resize", () => {
+		tabContent.style.minHeight = `${window.innerHeight - document.querySelector(".navbar").clientHeight - document.querySelector("h1.fs-large").clientHeight - document.querySelector("h1.fs-large + nav").clientHeight - 50}px`
+	})
+</script>
+}

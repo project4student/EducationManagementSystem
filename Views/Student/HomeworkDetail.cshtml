@@ -1,0 +1,102 @@
+@{
+	ViewBag.PageTitle = "Homework Detail";
+}
+@model StudentHomeworkDetailViewModel;
+<div class="container-fluid">
+
+	<div class="glass rounded-3 p-3 px-5">
+
+		@if (Model != null)
+		{
+			int index = Model.AssignFilepath.IndexOf("_");
+
+			<h2 class="fs-large text-center">@Model.SubjectName</h2>
+			<div class="d-flex justify-content-between row">
+				<div class="col-6">
+					<div class="mb-3">
+						<h4 class="m-0 fs-normal" style="margin-bottom:-8px !important">@Model.Title</h4>
+						<small class="fs-small">Assign Date : @Model.AssignDate.ToString("dd MMMM yyyy")</small>
+					</div>
+					<div class="mb-2">
+						<h4 class="m-0 fs-normal">Description</h4>
+						<p>@Model.Description</p>
+					</div>
+					<div>
+						<h4 class="m-0 fs-normal">Refrence Material</h4>
+						<a asp-controller="Teacher" asp-action="HomeworkFile" asp-route-id="@Model.Id" target="_blank"
+						style="color: white;">@Model.AssignFilepath.Substring(index+1)</a>
+					</div>
+					@if (Model.SubmiteedDate == null)
+					{
+						<div class="mt-3">
+							<form id="submitHomeworkForm">
+								<div class="input-group-sm">
+									<label for="HomeworkFile" style="font-weight: 700;">My Work</label>
+									<input type="file" class="form-control" id="HomeworkFile" name="HomeworkFile"
+								placeholder="Choose Homework File">
+								</div>
+								<div class="mt-3">
+									<button type="submit" class="btn btn-outline-warning btn-sm"
+								data-homeid="@Model.Id">Assign</button>
+								</div>
+
+							</form>
+						</div>
+					}else{
+						<div class="mt-3">
+							<h4 class="m-0 fs-normal">My Work</h4>
+							<a asp-controller="Teacher" asp-action="HomeworkFile" asp-route-id="@Model.Id" target="_blank"
+							style="color: white;">@Model.SubmittedFilepath.Substring(index+1)</a>
+						</div>
+					}
+				</div>
+				<div class="col-5 text-end">
+					@((Model.SubmiteedDate == null)? "Due Date: "+Model.DueDate.ToString("dd MMMM yyyy"):"Compeleted Date: "+Model.SubmiteedDate.Value.ToString("dd MMMM yyyy"))
+				</div>
+			</div>
+		}
+	</div>
+</div>
+@section CustomScripts{
+<script>
+	$("#submitHomeworkForm .btn").click(async (e) => {
+		var homeid = $("#submitHomeworkForm .btn").data("homeid")
+		const validator = $("#submitHomeworkForm").validate();
+		$.validator.addMethod('isPDF', (value, element) => {
+			return ((element.files.length > 0 && element.files[0].type == "application/pdf") ? true : false)
+		}, "Select only PDF Files")
+		$("#HomeworkFile").rules("add", {
+			required: true,
+			isPDF: true,
+			messages: {
+				required: "Choose Schedule File",
+			}
+		})
+		if (validator.form()) {
+			e.preventDefault();
+			const formData = new FormData($("#submitHomeworkForm")[0]);
+			try {
+				loading(true);
+				const res = await fetch(`/Student/HomeworkDetail?HomeworkId=${homeid}`, {
+					method: "POST",
+					body: formData,
+				});
+				const resJson = await res.json();
+
+				if (res.redirected) window.location.href = res.url;
+				loading(false);
+				if (resJson.success) {
+					showToast("success", resJson.success);
+					$("#submitHomeworkForm").trigger("reset");
+				} else {
+					showToast("danger", resJson.err);
+				}
+			} catch (error) {
+				console.log(error.message);
+				loading(false);
+				showToast("danger", "Internal Server Error!");
+			}
+		}
+	})
+</script>
+}

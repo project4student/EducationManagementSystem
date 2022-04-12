@@ -1,0 +1,51 @@
+@{
+	ViewBag.PageTitle = "Homework";
+}
+@model IEnumerable<HomeworkListViewModel>
+<div class="glass p-3 rounded-2 w-100 m-0">
+	<h1 class="fs-large text-center mb-0 py-3">Homework</h1>
+	<div class="accordion w-100" id="accordionHomeworkList">
+		@if (Model.Any())
+		{
+			@foreach (var homework in Model)
+			{
+				<div class="accordion-item rounded-2 glass mb-3 w-100">
+					<h2 class="accordion-header glass rounded-2" id=@($"heading{@homework.SubjectId}")>
+						<button class="accordion-button fw-bold bg-transparent collapsed" type="button"
+					data-bs-toggle="collapse" data-bs-target=@($"#collapse{@homework.SubjectId}")
+					data-sunjectId="@homework.SubjectId" aria-expanded="true"
+					aria-controls=@($"collapse{@homework.SubjectId}")>
+							@($"Class - {@homework.ClassId} : {@homework.SubjectName}")
+						</button>
+					</h2>
+					<div id=@($"collapse{@homework.SubjectId}") class="accordion-collapse collapse"
+				aria-labelledby=@($"heading{@homework.SubjectId}") data-bs-parent="#accordionHomeworkList">
+						<div class="accordion-body pb-2">
+							@if (@homework.Homeworks.Count() > 0)
+							{
+								@foreach (var item in homework.Homeworks.OrderByDescending(h => h.CreatedDate))
+								{
+									<a asp-controller="Teacher" asp-action="HomeworkDetail" asp-route-id="@item.Id"
+						class="d-flex mb-2 justify-content-between align-items-center position-relative">
+										<h6 class="m-0">@item.Title</h6>
+										<div>@item.CreatedDate.ToString("dd/MM/yyyy")</div>
+									</a>
+								}
+							}
+							else
+							{
+								<p class="fw-bold my-3 p-0 text-center">No Homework Assign to this subject</p>
+							}
+						</div>
+					</div>
+				</div>
+
+			}
+		}
+	</div>
+</div>
+@section CSS{
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+	integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+	crossorigin="anonymous" referrerpolicy="no-referrer"   />
+}

@@ -73,10 +73,3 @@ $("#credentialsBtn").click(async (e) => {
 		showToast("danger", "Internal Server Error !");
 	}
 });
-
-// $("#getCredentialsModal").on("show.bs.modal", ($event) => {
-// 	$(".backdrop-blur").show();
-// });
-// $("#getCredentialsModal").on("hidden.bs.modal", ($event) => {
-// 	$(".backdrop-blur").hide();
-// });

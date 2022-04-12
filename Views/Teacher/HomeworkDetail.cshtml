@@ -1,0 +1,95 @@
+@using EducationManagementSystem.ViewModels;
+@model HomeworkDetailViewModel
+@{
+	ViewBag.PageTitle = "Homework Detail";
+	var index = Model.AssignedHomeworkFilePath.IndexOf("_");
+}
+<div class="container-fluid">
+
+	<div class="glass rounded-3 p-3 px-5">
+
+		@if (Model != null)
+		{
+
+			<h2 class="fs-large text-center">@Model.SubjectName</h2>
+			<div class="mb-3">
+				<h4 class="m-0 fs-normal" style="margin-bottom:-8px !important">@Model.Title</h4>
+				<small class="fs-small">Due Date : @Model.DueDate</small>
+			</div>
+			<div class="mb-2">
+				<h4 class="m-0 fs-normal">Description</h4>
+				<p>@Model.Description</p>
+			</div>
+			<div>
+				<h4 class="m-0 fs-normal">Refrence Material</h4>
+				<a asp-controller="Teacher" asp-action="HomeworkFile" asp-route-id="@Model.Id" target="_blank"
+				style="color: white;">@Model.AssignedHomeworkFilePath.Substring(index+1)</a>
+			</div>
+		}
+	</div>
+	<h3 class="fs-large text-center mt-3 mb-0 py-3">Students</h3>
+	<div class="m-auto px-3">
+		@if (Model != null)
+		{
+
+			<table id="scheduleList">
+				<thead>
+					<tr>
+						<th class="text-center p-2 text-nowrap"><span class="d-inline-block">Roll Number</span><span></span>
+						</th>
+						<th class="text-nowrap p-2"><span class="d-inline-block">Student Name</span><span></span>
+						</th>
+						<th class="text-nowrap p-2"><span class="d-inline-block">Homework File</span><span></span>
+						</th>
+						<th class="text-nowrap p-2"><span class="d-inline-block">Submitted Date</span><span></span>
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					@if (Model.student != null && Model.student.Count() > 0)
+					{
+						@foreach (var item in Model.student)
+						{
+							var splitIndex = (@item.SubmittedFile != null) ? @item.SubmittedFile.IndexOf("_") : 0;
+							var Date = (@item.SubmittedDate.HasValue) ? item.SubmittedDate.Value.ToString("dd/MM/yyyy HH:mm") : "Not submitted";
+							<tr>
+								<td class="text-center p-2">@item.RollNo</td>
+								<td class="p-2">@item.StudentName</td>
+								<td class="p-2"><a style="color: white;">@item.SubmittedFile</a></td>
+								<td class="p-2">@Date</td>
+							</tr>
+						}
+					}
+
+
+				</tbody>
+			</table>
+		}
+	</div>
+</div>
+@section CustomScripts{
+<script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+<script>
+	$(document).ready(function () {
+		$('#scheduleList').DataTable({
+			dom: 't<"d-flex justify-content-between align-items-center mt-3"ip>',
+			pagingType: "full_numbers",
+			pageLength: 15,
+			pagingType: "simple_numbers",
+			language: {
+				paginate: {
+					previous: '<i class="fa-solid fa-caret-left"></i>',
+					next: '<i class="fa-solid fa-caret-right"></i>',
+				},
+				info: "Total Record: _MAX_",
+				lengthMenu: "Show_MENU_Entries",
+				emptyTable: "Student list not Found",
+			},
+			columnDefs: [
+				{ orderable: false, targets: 2 }
+			],
+		});
+	});
+
+</script>
+}  

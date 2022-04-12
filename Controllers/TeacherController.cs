@@ -1,4 +1,5 @@
 using EducationManagementSystem.Models;
+using EducationManagementSystem.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -10,11 +11,13 @@ public class TeacherController : Controller
 {
 	private readonly EMSContext context;
 	private readonly UserManager<Users> userManager;
+	private IWebHostEnvironment webHostEnvironment;
 
-	public TeacherController(EMSContext context, UserManager<Users> userManager)
+	public TeacherController(EMSContext context, UserManager<Users> userManager, IWebHostEnvironment webHostEnvironment)
 	{
 		this.context = context;
 		this.userManager = userManager;
+		this.webHostEnvironment = webHostEnvironment;
 	}
 	public IActionResult Index()
 	{
@@ -24,13 +27,136 @@ public class TeacherController : Controller
 	public async Task<IActionResult> AssignHomework()
 	{
 		var user = await userManager.GetUserAsync(User);
-		var result = (
-			from s in context.Subject
-			join sa in context.SubjectAssigned
-			on s.SubjectId equals sa.Id
+		var subjectList = (
+			from u in context.User
+			from sub in context.Subject
+			join assignSub in context.SubjectAssigned on new { TeacherId = u.Id, SubjectId = sub.SubjectId } equals new { TeacherId = assignSub.TeacherId, SubjectId = assignSub.SubjectId }
+			where u.Id == user.Id
+			select new SubjectList
+			{
+				SubjectName = sub.SubjectName,
+				SubjectId = sub.SubjectId,
+				ClassId = sub.ClassId
+			}).OrderBy(s => s.ClassId).ToList();
 
-
-		)
-		return View();
+		return View(new AssignHomeWorkSubmitViewModel()
+		{
+			SubjectLists = subjectList
+		});
 	}
+	[HttpPost]
+	public IActionResult AssignHomework(AssignHomeWorkSubmitViewModel model)
+	{
+		try
+		{
+
+			if (ModelState.IsValid)
+			{
+				var Homework = new Homework()
+				{
+					ClassId = model.ClassId,
+					SubectId = model.SubjectId,
+					Title = model.Title,
+					CreatedDate = DateTime.Parse(model.StartDate),
+					DueDate = DateTime.Parse(model.DueDate),
+					Description = model.Description,
+				};
+				if (model.HomeworkFile != null)
+				{
+					var uploadedFile = "Uploads/HomeWork/";
+					uploadedFile += Guid.NewGuid().ToString() + "_" + model.HomeworkFile.FileName;
+					var serverFolder = Path.Combine(webHostEnvironment.WebRootPath, uploadedFile);
+					using (var filestream = new FileStream(serverFolder, FileMode.Create))
+					{
+						model.HomeworkFile.CopyTo(filestream);
+					}
+					Homework.AssignedHomeworkFilePath = uploadedFile;
+					context.Homeworks.Add(Homework);
+					context.SaveChanges();
+					return Json(new { success = "Homework assigned Successfuly" });
+				}
+				else
+				{
+					return Json(new { err = "Select Homework File" });
+				}
+			}
+			return Json(new { err = "Enter proper value of fields" });
+		}
+		catch (Exception e)
+		{
+			Console.WriteLine(e.Message);
+			return Json(new { err = "Internal Server Error" });
+		}
+	}
+	public async Task<IActionResult> ViewHomework()
+	{
+		var user = await userManager.GetUserAsync(User);
+		var subjectList = (from sub in context.Subject
+						   join assignSub in context.SubjectAssigned on sub.SubjectId equals assignSub.SubjectId
+						   where assignSub.TeacherId == user.Id
+						   select new HomeworkListViewModel
+						   {
+							   SubjectName = sub.SubjectName,
+							   SubjectId = sub.SubjectId,
+							   ClassId = sub.ClassId,
+							   Homeworks = context.Homeworks.Where(h => h.SubectId == sub.SubjectId).ToList()
+						   }).OrderBy(s => s.ClassId).ToList();
+
+		return View(subjectList);
+	}
+	public async Task<IActionResult> HomeworkDetail(int id)
+	{
+		var user = await userManager.GetUserAsync(User);
+		var homeworkDetail = (
+
+			from h in context.Homeworks
+			join s in context.Subject on new { SubId = h.SubectId } equals new { SubId = s.SubjectId }
+			where h.Id == id
+			select new HomeworkDetailViewModel
+			{
+				Title = h.Title,
+				Id = h.Id,
+				Description = h.Description,
+				DueDate = h.DueDate,
+				AssignedHomeworkFilePath = h.AssignedHomeworkFilePath,
+				ClassId = h.ClassId,
+				SubjectName = s.SubjectName,
+				student = (from u in context.Users
+						   join ah in context.SubmittedHomeworks on new { StudentId = u.Id } equals new { StudentId = ah.StudentId } into ah_join
+						   from ah in ah_join.DefaultIfEmpty()
+						   where u.UserTypeId == 1 && u.ClassId == h.ClassId
+						   select new StudentList
+						   {
+							   GNRNo = u.GNRNo != null ? (int)u.GNRNo : 0,
+							   RollNo = u.RollNo != null ? (int)u.RollNo : 0,
+							   StudentName = u.FirstName + " " + u.MiddleName + " " + u.LastName,
+							   SubmittedFile = ah.UploadedHomeworkPath,
+							   SubmittedDate = ah.SubmittedDate,
+							   HomeWorkId = ah.HomeworkId
+						   }).Where(h => h.HomeWorkId == id || h.HomeWorkId == null).OrderBy(h => h.RollNo).ToList()
+			}
+		).FirstOrDefault();
+		return View(homeworkDetail);
+	}
+	public IActionResult HomeworkFile(int id)
+	{
+		try
+		{
+			var homework = context.Homeworks.Where(s => s.Id == id).FirstOrDefault();
+			if (homework != null)
+			{
+				string path = "wwwroot/" + homework.AssignedHomeworkFilePath;
+				byte[] pdf = System.IO.File.ReadAllBytes(path);
+				MemoryStream ms = new MemoryStream(pdf);
+				return new FileStreamResult(ms, "application/pdf");
+			}
+			return Json(new { err = "File Not Found !" });
+		}
+		catch (Exception e)
+		{
+			Console.WriteLine(e.Message);
+			return Json(new { err = "Internal Server Error !" });
+		}
+	}
+
 }

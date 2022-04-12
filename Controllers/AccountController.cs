@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using EducationManagementSystem.Services;
+using Microsoft.AspNetCore.Authorization;
 
 namespace EducationManagementSystem.Controllers;
 
@@ -49,7 +50,7 @@ public class AccountController : Controller
 					{
 						if (user.UserTypeId == 1) return Json(new { success = "Login successful !", redirectUrl = Url.Action("Index", "Student") });
 						if (user.UserTypeId == 2) return Json(new { success = "Login successful !", redirectUrl = Url.Action("Index", "Teacher") });
-						if (user.UserTypeId == 3) return Json(new { success = "Login successful !", redirectUrl = Url.Action("Index", "Admin") });
+						if (user.UserTypeId == 3) return Json(new { success = "Login successful !", redirectUrl = Url.Action("CreateUser", "Account") });
 					}
 					else
 					{
@@ -174,10 +175,12 @@ public class AccountController : Controller
 			return Json(new { err = "Internal Server Error !" });
 		}
 	}
+	[Authorize(Roles = "Admin")]
 	public IActionResult CreateUser()
 	{
 		return View();
 	}
+	[Authorize(Roles = "Admin")]
 	[HttpPost]
 	public async Task<IActionResult> CreateUser(UserViewModels createTeacherViewModel)
 	{
@@ -258,5 +261,12 @@ public class AccountController : Controller
 	public IActionResult AccessDenied()
 	{
 		return View();
+	}
+
+	[Authorize]
+	public async Task<IActionResult> Logout()
+	{
+		await signinManager.SignOutAsync();
+		return RedirectToAction("Index", "Home");
 	}
 }

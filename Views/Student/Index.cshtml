@@ -1,0 +1,113 @@
+@{
+	ViewBag.PageTitle = "Dashboard";
+}
+@model Users;
+@section CSS{
+<style>
+	b {
+		font-weight: 700;
+	}
+
+	.marquee {
+		border: 2px solid #faa701;
+		border-radius: 10px;
+		margin: auto;
+		overflow: hidden;
+		height: 100%;
+		background: fixed url("../Images/studentDashboardBG.jpg") center center no-repeat;
+		background-size: cover;
+	}
+
+	.marquee ul li {
+		margin-top: 15px;
+		text-align: justify;
+	}
+
+	.schoolDetail img {
+		width: 50px;
+		height: 58px;
+	}
+
+	.studentDetail ul {
+		list-style: none;
+		font-weight: 300;
+	}
+
+	.studentDetail ul li {
+		padding: 8px 0;
+	}
+
+	.studentPhoto div {
+		border: 1px solid #fff;
+		border-radius: 5px;
+		width: 150px;
+		float: right;
+	}
+</style>
+}
+<div class="container-fluid studentDashboard">
+	<h1 class="fs-large text-center mb-0 py-3">Dashboard</h1>
+	<div class="row glass p-3 rounded-2 flex-wrap">
+		<div class="col-md-8 col-12 mt-4 pe-4">
+			<div class=" row py-3 m-0 student flex-wrpa">
+				@if (Model != null)
+				{
+					<div class="col-md-8 col-12 order-2 order-md-0 studentDetail">
+						<ul class="ps-3">
+							<li><b>Name :</b> @(Model.LastName+" "+Model.FirstName)</li>
+							<li><b>Father Name :</b> @(Model.LastName+" "+ @Model.MiddleName)</li>
+							<li><b>Class :</b> @Model.ClassId</li>
+							<li><b>Mobile :</b> +91 @Model.PhoneNumber</li>
+							<li><b>DOB :</b> @Model.DateOfBirth.ToString("dd MMMM yyyy")</li>
+							<li><b>Addmission Date :</b> @Model.AdmissionDate.Value.ToString("dd MMMM yyyy")</li>
+							<li><b>Address :</b> @Model.Address</li>
+						</ul>
+					</div>
+					<div class="col-md-4 col-12 order-1 order-md-0  studentPhoto">
+						<div class="p-2 m-auto m-md-0 mb-4 mb-md-0">
+							<img src="/@Model.Profile" class="w-100" alt="">
+						</div>
+					</div>
+				}
+			</div>
+		</div>
+		<div class="col-md-4 col-12">
+			<h3 class="text-center fs-large">Notice</h3>
+			<div class="marquee p-0">
+				<ul class="pe-3">
+					<li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque sunt aut ducimus quod facere
+						tempore.
+					</li>
+					<li> Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque sunt aut ducimus quod facere
+						tempore.</li>
+					<li> Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque sunt aut ducimus quod facere
+						tempore.</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+</div>
+@section CustomScripts{
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jQuery.Marquee/1.6.0/jquery.marquee.min.js"
+	integrity="sha512-JHJv/L48s1Hod24iSI0u9bcF/JlUi+YaxliKdbasnw/U1Lp9xxWkaZ3O5OuQPMkVwOVXeFkF4n4176ouA6Py3A=="
+	crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"
+	integrity="sha512-xq+0+dRhI6SZOh+lDnMJEju2p2YPINflJLcYrRAsIMaXnJi6/V3lppCMCYsB2MLeF2E93r+fVo0MioY90pNzpw=="
+	crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+	$('.marquee').marquee({
+		//speed in milliseconds of the marquee
+		duration: 5000,
+		//gap in pixels between the tickers
+		gap: 20,
+		//time in milliseconds before the marquee will start animating
+		delayBeforeStart: 0,
+		//'left' or 'right'
+		direction: 'up',
+		//true or false - should the marquee be duplicated to show an effect of continues flow
+		duplicated: false,
+		pauseOnHover: true
+	});
+</script>
+}

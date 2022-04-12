@@ -9,12 +9,11 @@
 	</title>
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
 		integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+	<link rel="stylesheet" href="~/CSS/_comman.css" asp-append-version="true">
 	<link rel="stylesheet" href="https://code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css" />
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
 		integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
 		crossorigin="anonymous" referrerpolicy="no-referrer" />
-	<link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
-	<link rel="stylesheet" href="~/CSS/_comman.css" asp-append-version="true">
 	<link rel="shortcut icon" href="~/Images/favicon.ico" type="image/x-icon">
 	@RenderSection("CSS",false)
 </head>
@@ -61,24 +60,31 @@
 		<div
 			class="verticalNavbar d-flex flex-column align-items-center justify-content-start px-3 py-2 glass m-0 rounded-2">
 			<a class='@(ViewBag.PageTitle!=null && ViewBag.PageTitle=="Dashboard"?"verticalNavbarLink align-items-center my-1 d-flex w-100 px-md-2 py-md-1 p-1 active":"verticalNavbarLink align-items-center my-1 d-flex w-100 px-md-2 py-md-1 p-1")'
-				asp-controller="Teacher" asp-action="Index">
+				role="button" asp-controller="Student" asp-action="Index">
 				<i class="fa-solid fa-chart-line me-0 me-md-2"></i>
 				<div class="verticalNavbarLinkTitle">Dashboard</div>
 			</a>
-			<a class='@(ViewBag.PageTitle!=null && ViewBag.PageTitle=="Assign Homework"?"verticalNavbarLink align-items-center my-1 d-flex w-100 px-md-2 py-md-1 p-1 active":"verticalNavbarLink align-items-center my-1 d-flex w-100 px-md-2 py-md-1 p-1")'
-				asp-controller="Teacher" asp-action="AssignHomework">
+			@* <a
+				class='@(ViewBag.PageTitle!=null && ViewBag.PageTitle=="Add Homework"?"verticalNavbarLink
+				align-items-center my-1 d-flex w-100 px-md-2 py-md-1 p-1 active":"verticalNavbarLink align-items-center
+				my-1 d-flex w-100 px-md-2 py-md-1 p-1")'>
 				<i class="fa-solid fa-book me-0 me-md-2"></i>
 				<div class="verticalNavbarLinkTitle">Add Homework</div>
-			</a>
+				</a> *@
 			<a class='@(ViewBag.PageTitle!=null && ViewBag.PageTitle=="Homework"?"verticalNavbarLink align-items-center my-1 d-flex w-100 px-md-2 py-md-1 p-1 active":"verticalNavbarLink align-items-center my-1 d-flex w-100 px-md-2 py-md-1 p-1")'
-				role="button" asp-controller="Teacher" asp-action="ViewHomework">
+				role="button" asp-controller="Student" asp-action="Homework">
 				<i class="fa-solid fa-book-open-reader me-0 me-md-2"></i>
-				<div class="verticalNavbarLinkTitle">View Homework</div>
+				<div class="verticalNavbarLinkTitle">Homework</div>
+			</a>
+			<a class='@(ViewBag.PageTitle!=null && ViewBag.PageTitle=="Id Card"?"verticalNavbarLink align-items-center my-1 d-flex w-100 px-md-2 py-md-1 p-1 active":"verticalNavbarLink align-items-center my-1 d-flex w-100 px-md-2 py-md-1 p-1")'
+				role="button" asp-controller="Student" asp-action="IdCard">
+				<i class="fa-solid fa-id-card me-0 me-md-2"></i>
+				<div class="verticalNavbarLinkTitle">Id Card</div>
 			</a>
 		</div>
 		@RenderBody()
 	</div>
-	<div class="footer container-fluid bg-warning py-4 p-0">
+	<div class="container-fluid bg-warning py-4 p-0">
 		<div class="container">
 			<footer
 				class="d-flex flex-wrap justify-content-between align-items-center py-3 border-bottom border-success border-2">

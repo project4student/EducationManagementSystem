@@ -74,3 +74,35 @@ $("#DueDate").datepicker({
 	showAnim: "slideDown",
 	dateFormat: "dd/mm/yy",
 });
+$("#SubjectId").change(($e) => {
+	$("#ClassId").val($($e.target).find(":selected").data("classid"));
+});
+
+$("#assignHomeworkForm button[type='submit']").click(async (e) => {
+	const validator = $("#assignHomeworkForm").validate();
+	if (validator.form()) {
+		e.preventDefault();
+		const formData = new FormData($("#assignHomeworkForm")[0]);
+		try {
+			loading(true);
+			const res = await fetch("/Teacher/AssignHomework", {
+				method: "POST",
+				body: formData,
+			});
+			const resJson = await res.json();
+
+			if (res.redirected) window.location.href = res.url;
+			loading(false);
+			if (resJson.success) {
+				showToast("success", resJson.success);
+				$("#assignHomeworkForm").trigger("reset");
+			} else {
+				showToast("danger", resJson.err);
+			}
+		} catch (error) {
+			console.log(error.message);
+			loading(false);
+			showToast("danger", "Internal Server Error!");
+		}
+	}
+});

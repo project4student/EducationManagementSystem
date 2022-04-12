@@ -17,7 +17,7 @@ $("#addUserForm button[type='submit']").click(async (e) => {
 	$("#ProfilePicture").rules("add", {
 		required: true,
 		isImage: true,
-		message: {
+		messages: {
 			required: "Choose Profile Picture",
 		},
 	});

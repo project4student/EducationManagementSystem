@@ -1,7 +1,7 @@
 @{
-    Layout = "_Layout";
     ViewBag.PageTitle = "Id Card";
 }
+@model Users;
 @section CSS{
 
 <style>
@@ -29,7 +29,7 @@
     .studentPhoto div {
         border: 1px solid #faa701;
         border-radius: 5px;
-        width: 110px;
+        width: 140px;
         float: right;
     }
 
@@ -38,10 +38,11 @@
     }
 </style>
 }
-<div class="container-fluid">
+<div class="container-fluid glass rounded-2">
     <h1 class="fs-large  text-center mb-0 py-3">Id Card</h1>
     <div style="max-width: 700px;" class="m-auto text-dark" id="idCard">
         <div class="row py-3 m-0 school">
+
             <div class="col-4 schoolDetail d-flex align-items-center">
                 <img src="/Images/logo.png" alt="Logo">
                 <h3 class="fs-5 mb-0 ms-3 text-nowrap">School Name</h3>
@@ -56,21 +57,24 @@
             </div>
         </div>
         <div class=" row py-3 m-0 student">
-            <div class="col-8 studentDetail">
-                <ul class="ps-3">
-                    <li><b>Name:</b> Gohil Mihir</li>
-                    <li><b>Father Name:</b> Gohil Bhikhubha</li>
-                    <li><b>Class:</b> 10th</li>
-                    <li><b>Mobile:</b> +91 9726332809</li>
-                    <li><b>DOB:</b> 30/05/2001</li>
-                    <li><b>Address:</b> fjlkasfmd lkshaflc hdflkja jflajlf jflksa</li>
-                </ul>
-            </div>
-            <div class="col-4 text-end studentPhoto">
-                <div class="p-2">
-                    <img src="/ProfilePicture/48840c9f-ab00-4d63-8cdf-0c144a67f53fPhoto.jpg" class="w-100" alt="">
+            @if (Model != null)
+            {
+                <div class="col-md-8 col-12 order-2 order-md-0 studentDetail">
+                    <ul class="ps-3">
+                        <li><b>Name :</b> @(Model.LastName+" "+Model.FirstName)</li>
+                        <li><b>Father Name :</b> @(Model.LastName+" "+ @Model.MiddleName)</li>
+                        <li><b>Class :</b> @Model.ClassId</li>
+                        <li><b>Mobile :</b> +91 @Model.PhoneNumber</li>
+                        <li><b>DOB :</b> @Model.DateOfBirth.ToString("dd MMMM yyyy")</li>
+                        <li><b>Address :</b> @Model.Address</li>
+                    </ul>
                 </div>
-            </div>
+                <div class="col-md-4 col-12 order-1 order-md-0  studentPhoto">
+                    <div class="p-2 m-auto m-md-0 mb-4 mb-md-0">
+                        <img src="/@Model.Profile" class="w-100" alt="">
+                    </div>
+                </div>
+            }
         </div>
         <div class="text-center fw-bold p-3 m-0 schoolAddress">
             Address Line1, Address Line 2, LandMark , City PinCode: 364001

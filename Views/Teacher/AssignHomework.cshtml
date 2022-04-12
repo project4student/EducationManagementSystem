@@ -1,40 +1,51 @@
 @{
 	ViewBag.PageTitle = "Assign Homework";
 }
-
+@model AssignHomeWorkSubmitViewModel;
 <div class="glass rounded-3 container-fluid formContainer p-4 d-flex align-items-center justify-content-center">
 	<form class="row" style="max-width: 991px;" id="assignHomeworkForm">
+		<h1 class="fs-large text-center mb-3 pb-2">Assign Homework</h1>
+		<input type="hidden" asp-for="ClassId">
 		<div class="mb-2 col-12 col-md-6">
 			<label for="SubjectId">Subject</label>
-			<select class="form-select" id="SubjectId" name="SubjectId" placeholder="Select Subject">
+			<select class="form-select" id="SubjectId" asp-for="SubjectId" placeholder="Select Subject">
 				<option value="">Select Subject</option>
+				@if (Model.SubjectLists != null && Model.SubjectLists.Any())
+				{
+					@foreach (var sub in Model.SubjectLists)
+					{
+						<option value="@sub.SubjectId" data-classId="@sub.ClassId">@($"Class - {sub.ClassId} : {sub.SubjectName}")
+						</option>
+					}
+				}
 			</select>
 		</div>
 		<div class="mb-2 col-12 col-md-6">
 			<label for="Title">Title</label>
-			<input type="text" class="form-control" id="Title" name="Title" placeholder="Enter Title">
+			<input type="text" class="form-control" id="Title" asp-for="Title" placeholder="Enter Title">
 		</div>
 		<div class="mb-2 col-12 col-md-6">
 			<label for="StartDate">Start Date</label>
 			<div class="datePicker">
-				<input type="text" class="form-control" id="StartDate" readonly name="StartDate"
+				<input type="text" class="form-control" id="StartDate" readonly asp-for="StartDate"
 					placeholder="DD/MM/YYYY">
 			</div>
 		</div>
 		<div class="mb-2 col-12 col-md-6">
 			<label for="DueDate">Due Date</label>
 			<div class="datePicker">
-				<input type="text" class="form-control" id="DueDate" name="DueDate" readonly placeholder="DD/MM/YYYY">
+				<input type="text" class="form-control" id="DueDate" asp-for="DueDate" readonly
+					placeholder="DD/MM/YYYY">
 			</div>
 		</div>
 		<div class="mb-2 col-12">
 			<label for="HomeworkFile">Homework File</label>
-			<input type="file" class="form-control" id="HomeworkFile" name="HomeworkFile"
+			<input type="file" class="form-control" id="HomeworkFile" asp-for="HomeworkFile"
 				placeholder="Choose Homework File">
 		</div>
 		<div class="mb-2 col-12">
 			<label for="Description">Description</label>
-			<textarea type="text" class="form-control" id="Description" name="Description"
+			<textarea type="text" class="form-control" id="Description" asp-for="Description"
 				placeholder="Enter Description"></textarea>
 		</div>
 		<div class="mb-2 col-12">
