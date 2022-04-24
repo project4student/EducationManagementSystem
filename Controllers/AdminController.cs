@@ -70,11 +70,17 @@ public class AdminController : Controller
 #nullable disable
 			var ClassId = Int32.Parse(data["Class"][0]);
 			var Type = Int32.Parse(data["Type"][0]);
+			var isExam = Type == 2 ? true : false;
+			var s = context.Schedules.Where(s => s.ClassId == ClassId && s.isExam == isExam).Count();
+			if (s > 0)
+			{
+				return Json(new { err = "Schedule already exist, to upload new one delete old schedule" });
+			}
 			var schedules = new Schedule();
 			if (ClassId != 0 && Type != 0)
 			{
 				schedules.ClassId = ClassId;
-				schedules.isExam = Type == 2 ? true : false;
+				schedules.isExam = isExam;
 				if (scheduleFile != null)
 				{
 					var uploadedFile = "Uploads/LectureScheduls/";
@@ -86,6 +92,7 @@ public class AdminController : Controller
 					}
 					schedules.FilePath = uploadedFile;
 					schedules.UploadedDate = DateTime.Now;
+					schedules.Description = data["description"];
 					context.Schedules.Add(schedules);
 					context.SaveChanges();
 					return Json(new { success = "Schedule Uploaded Successfuly" });
@@ -104,12 +111,32 @@ public class AdminController : Controller
 		var schedule = context.Schedules.ToList();
 		return View(schedule);
 	}
+	public IActionResult DeleteSchedules(int id)
+	{
+		try
+		{
+			var schedule = context.Schedules.FirstOrDefault(s => s.Id == id);
+			if (schedule == null)
+			{
+				return Json(new { err = "Schedule  not found" });
+			}
+			context.Remove(schedule);
+			context.SaveChanges();
+			return Json(new { success = "Schedule deleted successfuly" });
+		}
+		catch (Exception e)
+		{
+			Console.WriteLine(e.Message);
+			return Json(new { err = "Internal server error" });
+		}
+	}
 	public IActionResult GetSubjectList(int classId)
 	{
 		var Subject = context.Subject.Where(s => s.ClassId == classId).ToList();
 		return Json(new { subject = Subject });
 	}
 
+	[Authorize(Roles = "Admin,Student,Teacher")]
 	public IActionResult GetSchedule(int Id)
 	{
 		var schedule = context.Schedules.Where(s => s.Id == Id).Select(s => s.FilePath).FirstOrDefault();
@@ -117,5 +144,42 @@ public class AdminController : Controller
 		byte[] pdf = System.IO.File.ReadAllBytes(path);
 		MemoryStream ms = new MemoryStream(pdf);
 		return new FileStreamResult(ms, "application/pdf");
+	}
+
+	public IActionResult Notice()
+	{
+		return View();
+	}
+	[HttpPost]
+	public IActionResult Notice(IFormCollection data)
+	{
+		try
+		{
+			if (data.Keys.Any())
+			{
+				var notice = new Notice()
+				{
+					ClassId = Int32.Parse(data["Class"]),
+					details = data["detail"],
+					CreatedDate = DateTime.Now
+				};
+				context.Add(notice);
+				context.SaveChanges();
+				return Json(new { success = "Notice add succefully" });
+			}
+			else
+			{
+				return Json(new { err = "Enter valid fields" });
+			}
+		}
+		catch (Exception e)
+		{
+			Console.WriteLine(e.Message);
+			return Json(new { err = "Internal Server Error" });
+		}
+	}
+	public IActionResult UserManagement()
+	{
+		return View();
 	}
 }

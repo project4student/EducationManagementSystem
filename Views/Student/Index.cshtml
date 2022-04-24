@@ -1,7 +1,7 @@
 @{
 	ViewBag.PageTitle = "Dashboard";
 }
-@model Users;
+@model UserDashboardViewModels;
 @section CSS{
 <style>
 	b {
@@ -54,18 +54,18 @@
 				{
 					<div class="col-md-8 col-12 order-2 order-md-0 studentDetail">
 						<ul class="ps-3">
-							<li><b>Name :</b> @(Model.LastName+" "+Model.FirstName)</li>
-							<li><b>Father Name :</b> @(Model.LastName+" "+ @Model.MiddleName)</li>
-							<li><b>Class :</b> @Model.ClassId</li>
-							<li><b>Mobile :</b> +91 @Model.PhoneNumber</li>
-							<li><b>DOB :</b> @Model.DateOfBirth.ToString("dd MMMM yyyy")</li>
-							<li><b>Addmission Date :</b> @Model.AdmissionDate.Value.ToString("dd MMMM yyyy")</li>
+							<li><b>Name :</b> @(Model.Name)</li>
+							<li><b>Father Name :</b> @(Model.FatherName)</li>
+							<li><b>Class :</b> @Model.Class</li>
+							<li><b>Mobile :</b> +91 @Model.Mobile</li>
+							<li><b>DOB :</b> @Model.DateOfBirth</li>
+							<li><b>Addmission Date :</b> @Model.AdmissionDate</li>
 							<li><b>Address :</b> @Model.Address</li>
 						</ul>
 					</div>
 					<div class="col-md-4 col-12 order-1 order-md-0  studentPhoto">
 						<div class="p-2 m-auto m-md-0 mb-4 mb-md-0">
-							<img src="/@Model.Profile" class="w-100" alt="">
+							<img src="/@Model.ProfilePicture" class="w-100" alt="Profile Picture">
 						</div>
 					</div>
 				}
@@ -75,13 +75,13 @@
 			<h3 class="text-center fs-large">Notice</h3>
 			<div class="marquee p-0">
 				<ul class="pe-3">
-					<li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque sunt aut ducimus quod facere
-						tempore.
-					</li>
-					<li> Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque sunt aut ducimus quod facere
-						tempore.</li>
-					<li> Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque sunt aut ducimus quod facere
-						tempore.</li>
+					@if (Model.Notice != null)
+					{
+						@foreach (var item in Model.Notice)
+						{
+							<li>@item</li>
+						}
+					}
 				</ul>
 			</div>
 		</div>

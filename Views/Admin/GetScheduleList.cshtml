@@ -11,7 +11,7 @@
 
                 <tr>
                     <th class="text-center text-nowrap"><span class="d-inline-block">Class</span><span></span></th>
-                    <th class="text-nowrap"><span class="d-inline-block">Details</span><span></span></th>
+                    <th class="text-nowrap p-2"><span class="d-inline-block">Details</span><span></span></th>
                     <th class="text-center text-nowrap"><span class="d-inline-block">Action</span><span></span></th>
                 </tr>
             </thead>
@@ -22,11 +22,11 @@
                     {
                         <tr>
                             <td class="text-center">@s.ClassId</td>
-                            <td>@(s.isExam?"Exam Schedule":"Daily Schedule")</td>
+                            <td class="p-2">@s.Description</td>
                             <td class="text-center">
                                 <a class="btn btn-outline-warning rounded-0" asp-controller="Admin" asp-action="GetSchedule"
                             asp-route-id="@s.Id" target="_blank">View</a>
-                                <button class="btn btn-outline-warning rounded-0">Delete</button>
+                                <button class="btn btn-outline-warning rounded-0 deleteSchedule" data-id="@s.Id">Delete</button>
                             </td>
                         </tr>
                     }
@@ -159,6 +159,32 @@
             ],
         });
     });
+
+    $(".deleteSchedule").click(async ($event) => {
+        console.log()
+        try {
+            loading(true);
+            const res = await fetch("/Admin/DeleteSchedules/" + $($event.target).data("id"), {
+                method: "POST",
+            });
+            const resJson = await res.json();
+            console.log(resJson);
+            if (res.redirected) window.location.href = res.url;
+            loading(false);
+            if (resJson.success) {
+                showToast("success", resJson.success);
+                setTimeout(() => {
+                    window.location.reload(true);
+                }, 2000)
+            } else {
+                showToast("danger", resJson.err);
+            }
+        } catch (error) {
+            console.log(error.message);
+            loading(false);
+            showToast("danger", "Internal Server Error!");
+        }
+    })
 
 </script>
 }

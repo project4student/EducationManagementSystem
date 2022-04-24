@@ -347,7 +347,7 @@ body.loading div.loader {
 	background-color: transparent;
 }
 textarea.form-control {
-	min-height: 146px;
+	min-height: 130px;
 	resize: none;
 }
 /* Chrome, Safari, Edge, Opera */

@@ -16298,6 +16298,11 @@
   "RootNamespace": "EducationManagementSystem",
   "Documents": [
     {
+      "FilePath": "e:\\Study\\Sem-8\\Internship\\Education Management System\\EducationManagementSystem\\Views\\Admin\\UserManagement.cshtml",
+      "TargetPath": "Views\\Admin\\UserManagement.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "e:\\Study\\Sem-8\\Internship\\Education Management System\\EducationManagementSystem\\Views\\_ViewImports.cshtml",
       "TargetPath": "Views\\_ViewImports.cshtml",
       "FileKind": "mvc"
@@ -16345,6 +16350,11 @@
     {
       "FilePath": "e:\\Study\\Sem-8\\Internship\\Education Management System\\EducationManagementSystem\\Views\\Student\\_ViewStart.cshtml",
       "TargetPath": "Views\\Student\\_ViewStart.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "e:\\Study\\Sem-8\\Internship\\Education Management System\\EducationManagementSystem\\Views\\Admin\\Notice.cshtml",
+      "TargetPath": "Views\\Admin\\Notice.cshtml",
       "FileKind": "mvc"
     },
     {

@@ -122,9 +122,10 @@ public class TeacherController : Controller
 				ClassId = h.ClassId,
 				SubjectName = s.SubjectName,
 				student = (from u in context.Users
-						   join ah in context.SubmittedHomeworks on new { StudentId = u.Id } equals new { StudentId = ah.StudentId } into ah_join
+						   join h in context.Homeworks on u.ClassId equals h.ClassId
+						   join ah in context.SubmittedHomeworks on new { StudentId = u.Id, HomeworkId = h.Id } equals new { StudentId = ah.StudentId, HomeworkId = ah.HomeworkId } into ah_join
 						   from ah in ah_join.DefaultIfEmpty()
-						   where u.UserTypeId == 1 && u.ClassId == h.ClassId
+						   where u.UserTypeId == 1 && u.ClassId == h.ClassId && h.Id == id
 						   select new StudentList
 						   {
 							   GNRNo = u.GNRNo != null ? (int)u.GNRNo : 0,
@@ -132,12 +133,14 @@ public class TeacherController : Controller
 							   StudentName = u.FirstName + " " + u.MiddleName + " " + u.LastName,
 							   SubmittedFile = ah.UploadedHomeworkPath,
 							   SubmittedDate = ah.SubmittedDate,
-							   HomeWorkId = ah.HomeworkId
-						   }).Where(h => h.HomeWorkId == id || h.HomeWorkId == null).OrderBy(h => h.RollNo).ToList()
+							   HomeWorkId = ah.HomeworkId,
+							   StudentId = u.Id
+						   }).OrderBy(h => h.RollNo).ToList()
 			}
 		).FirstOrDefault();
 		return View(homeworkDetail);
 	}
+	[Authorize(Roles = "Student,Teacher")]
 	public IActionResult HomeworkFile(int id)
 	{
 		try
@@ -151,6 +154,26 @@ public class TeacherController : Controller
 				return new FileStreamResult(ms, "application/pdf");
 			}
 			return Json(new { err = "File Not Found !" });
+		}
+		catch (Exception e)
+		{
+			Console.WriteLine(e.Message);
+			return Json(new { err = "Internal Server Error !" });
+		}
+	}
+	public IActionResult SubmittedHomeworkFile(int id, string StudentId)
+	{
+		try
+		{
+			var homework = context.SubmittedHomeworks.Where(s => s.Id == id && s.StudentId == StudentId).FirstOrDefault();
+			if (homework != null)
+			{
+				string path = "wwwroot/" + homework.UploadedHomeworkPath;
+				byte[] pdf = System.IO.File.ReadAllBytes(path);
+				MemoryStream ms = new MemoryStream(pdf);
+				return new FileStreamResult(ms, "application/pdf");
+			}
+			return Json(new { err = "File Not Found!" });
 		}
 		catch (Exception e)
 		{

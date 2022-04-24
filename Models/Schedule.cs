@@ -11,6 +11,8 @@ public class Schedule
 	[Required]
 	public string FilePath { get; set; }
 	[Required]
+	public string Description { get; set; }
+	[Required]
 	public bool isExam { get; set; }
 	[Required]
 	public DateTime UploadedDate { get; set; }

@@ -1,0 +1,67 @@
+<div class="container pb-5 pt-3">
+	<h1 class="fs-large text-center mb-3 mt-1">Notice</h1>
+	<form id="noticeForm" class="glass mt-1 p-4 rounded-1" style="max-width: 576px;">
+		<div class="mb-3">
+			<label class="mb-2" for="Class">Select Class/Catogeroy</label>
+			<select class="form-select" name="Class" id="Class">
+				<option value="">Select Class/Catogeroy</option>
+				<option value=11>General</option>
+				@for (int i = 1; i < 11; i++)
+				{
+					<option value="@i">For Class @i</option>
+				}
+			</select>
+		</div>
+		<div class="mb-3">
+			<label for="detail" class="mb-2">Notice Details</label>
+			<textarea name="detail" id="detail" class="form-control" placeholder="notice details"></textarea>
+		</div>
+		<div>
+			<button class="btn btn-outline-warning rounded-0" type="submit">Add</button>
+		</div>
+	</form>
+</div>
+@section CustomScripts{
+<script>
+	$("#noticeForm button[type='submit']").click(async (e) => {
+		const validator = $("#noticeForm").validate();
+		$("#Class").rules("add", {
+			required: true,
+			messages: {
+				required: "Select Class/Category",
+			}
+		})
+		$("#detail").rules("add", {
+			required: true,
+			messages: {
+				required: "Enter notice details",
+			}
+		})
+		if (validator.form()) {
+			e.preventDefault();
+			const formData = new FormData($("#noticeForm")[0]);
+			try {
+				loading(true);
+				const res = await fetch("/Admin/notice", {
+					method: "POST",
+					body: formData,
+				});
+				const resJson = await res.json();
+				console.log(resJson);
+				if (res.redirected) window.location.href = res.url;
+				loading(false);
+				if (resJson.success) {
+					showToast("success", resJson.success);
+					$("#noticeForm").trigger("reset");
+				} else {
+					showToast("danger", resJson.err);
+				}
+			} catch (error) {
+				console.log(error.message);
+				loading(false);
+				showToast("danger", "Internal Server Error!");
+			}
+		}
+	})
+</script>
+}

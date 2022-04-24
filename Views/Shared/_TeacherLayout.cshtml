@@ -60,11 +60,13 @@
 	<div class="teacherContainer align-items-start container-fluid d-flex py-4">
 		<div
 			class="verticalNavbar d-flex flex-column align-items-center justify-content-start px-3 py-2 glass m-0 rounded-2">
-			<a class='@(ViewBag.PageTitle!=null && ViewBag.PageTitle=="Dashboard"?"verticalNavbarLink align-items-center my-1 d-flex w-100 px-md-2 py-md-1 p-1 active":"verticalNavbarLink align-items-center my-1 d-flex w-100 px-md-2 py-md-1 p-1")'
+			@* <a class='@(ViewBag.PageTitle!=null && ViewBag.PageTitle=="Dashboard"?"verticalNavbarLink
+				align-items-center my-1 d-flex w-100 px-md-2 py-md-1 p-1 active":"verticalNavbarLink align-items-center my-1
+				d-flex w-100 px-md-2 py-md-1 p-1")'
 				asp-controller="Teacher" asp-action="Index">
 				<i class="fa-solid fa-chart-line me-0 me-md-2"></i>
 				<div class="verticalNavbarLinkTitle">Dashboard</div>
-			</a>
+				</a> *@
 			<a class='@(ViewBag.PageTitle!=null && ViewBag.PageTitle=="Assign Homework"?"verticalNavbarLink align-items-center my-1 d-flex w-100 px-md-2 py-md-1 p-1 active":"verticalNavbarLink align-items-center my-1 d-flex w-100 px-md-2 py-md-1 p-1")'
 				asp-controller="Teacher" asp-action="AssignHomework">
 				<i class="fa-solid fa-book me-0 me-md-2"></i>

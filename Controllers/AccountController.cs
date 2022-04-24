@@ -49,8 +49,8 @@ public class AccountController : Controller
 					if (result.Succeeded)
 					{
 						if (user.UserTypeId == 1) return Json(new { success = "Login successful !", redirectUrl = Url.Action("Index", "Student") });
-						if (user.UserTypeId == 2) return Json(new { success = "Login successful !", redirectUrl = Url.Action("Index", "Teacher") });
-						if (user.UserTypeId == 3) return Json(new { success = "Login successful !", redirectUrl = Url.Action("CreateUser", "Account") });
+						if (user.UserTypeId == 2) return Json(new { success = "Login successful !", redirectUrl = Url.Action("ViewHomework", "Teacher") });
+						if (user.UserTypeId == 3) return Json(new { success = "Login successful !", redirectUrl = Url.Action("Index", "Home") });
 					}
 					else
 					{

@@ -39,7 +39,10 @@
 				}
 			</div>
 			<div class="tab-pane fade" id="nav-submitted" role="tabpanel" aria-labelledby="nav-submitted-tab">
-				@foreach (var h in Model.Where(h => h.student[0].SubmittedDate != null))
+				@{
+					var compeltedHomework = Model.Where(h => h.student[0].SubmittedDate != null);
+				}
+				@foreach (var h in compeltedHomework)
 				{
 					<a asp-controller="Student" asp-action="HomeworkDetail" asp-route-Id="@h.Id"
 				asp-route-SubjectName="@h.SubjectName" asp-route-isSubmit="true"
@@ -50,7 +53,7 @@
 							<small>Assign on : @h.AssignDate.ToString("dd MMMM yyyy")</small>
 						</div>
 						<div>
-							Completed on : @h.student[0].SubmittedDate.Value.ToString("dd MMMM yyyy")
+							Completed on : @(h.student[0].SubmittedDate!=null?h.student[0].SubmittedDate.Value.ToString("dd MMMM yyyy"):"")
 						</div>
 					</a>
 				}

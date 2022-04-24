@@ -16,6 +16,7 @@ public class EMSContext : IdentityDbContext<Users>
 	public DbSet<Schedule> Schedules { get; set; }
 	public DbSet<SubmittedHomework> SubmittedHomeworks { get; set; }
 	public DbSet<Homework> Homeworks { get; set; }
+	public DbSet<Notice> Notices { get; set; }
 	protected override void OnModelCreating(ModelBuilder builder)
 	{
 		base.OnModelCreating(builder);
@@ -80,5 +81,11 @@ public class EMSContext : IdentityDbContext<Users>
 		{
 			entity.HasKey(s => s.Id);
 		});
+
+		builder.Entity<Notice>(entity =>
+		{
+			entity.HasKey(n => n.Id);
+		});
+
 	}
 }

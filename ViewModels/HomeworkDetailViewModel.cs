@@ -22,6 +22,8 @@ public class HomeworkDetailViewModel
 
 public class StudentList
 {
+#nullable disable
+	public string StudentId { get; set; }
 	public int GNRNo { get; set; }
 	public int RollNo { get; set; }
 	public string StudentName { get; set; }

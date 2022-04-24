@@ -29,7 +29,22 @@ public class StudentController : Controller
 	public async Task<IActionResult> Index()
 	{
 		var user = await userManager.GetUserAsync(User);
-		return View(user);
+		var userDashboard = new UserDashboardViewModels()
+		{
+			Name = user.FirstName + " " + user.LastName,
+			FatherName = user.MiddleName + " " + user.LastName,
+			Class = user.ClassId != null ? (int)user.ClassId : 0,
+			Mobile = user.PhoneNumber,
+			DateOfBirth = user.DateOfBirth.ToString("dd MMMM yyyy"),
+			AdmissionDate = user.AdmissionDate.Value.ToString("dd MMMM yyyy"),
+			Address = user.Address,
+			ProfilePicture = user.Profile
+		};
+
+		var notice = context.Notices.Where(n => n.ClassId == userDashboard.Class | n.ClassId == 11).Select(n => n.details).ToList();
+		userDashboard.Notice = notice;
+
+		return View(userDashboard);
 	}
 	public IActionResult ViewSchedule(int id)
 	{
@@ -103,7 +118,8 @@ public class StudentController : Controller
 				AssignDate = h.CreatedDate,
 				DueDate = h.DueDate,
 				SubmiteedDate = sh.SubmittedDate,
-				SubmittedFilepath = sh.UploadedHomeworkPath
+				SubmittedFilepath = sh.UploadedHomeworkPath,
+				Id = h.Id
 			}).Where(h => h.StudentId == userId).FirstOrDefault();
 
 		return View(homework);
@@ -143,6 +159,27 @@ public class StudentController : Controller
 		{
 			Console.WriteLine(e.Message);
 			return Json(new { err = "Internal server Error" });
+		}
+	}
+	public IActionResult HomeworkFile(int id)
+	{
+		var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+		try
+		{
+			var homework = context.SubmittedHomeworks.Where(s => s.Id == id && s.StudentId == userId).FirstOrDefault();
+			if (homework != null)
+			{
+				string path = "wwwroot/" + homework.UploadedHomeworkPath;
+				byte[] pdf = System.IO.File.ReadAllBytes(path);
+				MemoryStream ms = new MemoryStream(pdf);
+				return new FileStreamResult(ms, "application/pdf");
+			}
+			return Json(new { err = "File Not Found or you cann't access this file!" });
+		}
+		catch (Exception e)
+		{
+			Console.WriteLine(e.Message);
+			return Json(new { err = "Internal Server Error !" });
 		}
 	}
 }

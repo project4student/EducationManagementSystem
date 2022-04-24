@@ -46,7 +46,7 @@
 					</tr>
 				</thead>
 				<tbody>
-					@if (Model.student != null && Model.student.Count() > 0)
+					@if (Model.student != null && Model.student.Any())
 					{
 						@foreach (var item in Model.student)
 						{
@@ -55,7 +55,7 @@
 							<tr>
 								<td class="text-center p-2">@item.RollNo</td>
 								<td class="p-2">@item.StudentName</td>
-								<td class="p-2"><a style="color: white;">@item.SubmittedFile</a></td>
+								<td class="p-2"><a asp-action="SubmittedHomeworkFile" asp-controller="Teacher" asp-route-id="@Model.Id" asp-route-StudentId="@item.StudentId" target="_blank" style="color: white;">@(item.SubmittedFile!=null?item.SubmittedFile.Substring(splitIndex+1):"")</a></td>
 								<td class="p-2">@Date</td>
 							</tr>
 						}
