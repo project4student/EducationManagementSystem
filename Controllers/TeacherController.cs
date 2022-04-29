@@ -140,20 +140,30 @@ public class TeacherController : Controller
 		).FirstOrDefault();
 		return View(homeworkDetail);
 	}
-	[Authorize(Roles = "Student,Teacher")]
+
+	[AllowAnonymous]
+	[Authorize(Roles = "Student,Teacher,Admin")]
 	public IActionResult HomeworkFile(int id)
 	{
 		try
 		{
-			var homework = context.Homeworks.Where(s => s.Id == id).FirstOrDefault();
-			if (homework != null)
+			if (User.Identity.IsAuthenticated && (User.IsInRole("Student") || User.IsInRole("Teacher") || User.IsInRole("Admin")))
 			{
-				string path = "wwwroot/" + homework.AssignedHomeworkFilePath;
-				byte[] pdf = System.IO.File.ReadAllBytes(path);
-				MemoryStream ms = new MemoryStream(pdf);
-				return new FileStreamResult(ms, "application/pdf");
+
+				var homework = context.Homeworks.Where(s => s.Id == id).FirstOrDefault();
+				if (homework != null)
+				{
+					string path = "wwwroot/" + homework.AssignedHomeworkFilePath;
+					byte[] pdf = System.IO.File.ReadAllBytes(path);
+					MemoryStream ms = new MemoryStream(pdf);
+					return new FileStreamResult(ms, "application/pdf");
+				}
+				return Json(new { err = "File Not Found !" });
 			}
-			return Json(new { err = "File Not Found !" });
+			else
+			{
+				return RedirectToAction("Login", "Account");
+			}
 		}
 		catch (Exception e)
 		{
@@ -161,19 +171,29 @@ public class TeacherController : Controller
 			return Json(new { err = "Internal Server Error !" });
 		}
 	}
+
+	[AllowAnonymous]
 	public IActionResult SubmittedHomeworkFile(int id, string StudentId)
 	{
 		try
 		{
-			var homework = context.SubmittedHomeworks.Where(s => s.Id == id && s.StudentId == StudentId).FirstOrDefault();
-			if (homework != null)
+			if (User.Identity.IsAuthenticated && (User.IsInRole("Student") || User.IsInRole("Teacher") || User.IsInRole("Admin")))
 			{
-				string path = "wwwroot/" + homework.UploadedHomeworkPath;
-				byte[] pdf = System.IO.File.ReadAllBytes(path);
-				MemoryStream ms = new MemoryStream(pdf);
-				return new FileStreamResult(ms, "application/pdf");
+
+				var homework = context.SubmittedHomeworks.Where(s => s.HomeworkId == id && s.StudentId == StudentId).FirstOrDefault();
+				if (homework != null)
+				{
+					string path = "wwwroot/" + homework.UploadedHomeworkPath;
+					byte[] pdf = System.IO.File.ReadAllBytes(path);
+					MemoryStream ms = new MemoryStream(pdf);
+					return new FileStreamResult(ms, "application/pdf");
+				}
+				return Json(new { err = "File Not Found!" });
 			}
-			return Json(new { err = "File Not Found!" });
+			else
+			{
+				return RedirectToAction("Login", "Account");
+			}
 		}
 		catch (Exception e)
 		{

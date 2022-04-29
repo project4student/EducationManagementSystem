@@ -1,4 +1,7 @@
+@inject SignInManager<Users> signInManager;
+@inject UserManager<Users> userManager;
 @{
+	var loggedInUser = userManager.GetUserAsync(User).Result;
 	ViewBag.PageTitle = "Homework Detail";
 }
 @model StudentHomeworkDetailViewModel;
@@ -45,7 +48,7 @@
 					}else{
 						<div class="mt-3">
 							<h4 class="m-0 fs-normal">My Work</h4>
-							<a asp-controller="Teacher" asp-action="HomeworkFile" asp-route-id="@Model.Id" target="_blank"
+							<a asp-controller="Teacher" asp-action="SubmittedHomeworkFile" asp-route-StudentId="@loggedInUser.Id" asp-route-id="@Model.Id" target="_blank"
 							style="color: white;">@Model.SubmittedFilepath.Substring(index+1)</a>
 						</div>
 					}
