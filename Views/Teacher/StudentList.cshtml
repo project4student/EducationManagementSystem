@@ -1,55 +1,48 @@
-@{
-	ViewBag.PageTitle = "User Management";
-}
-@model IEnumerable<Users>
-<div class="container" style="min-height: calc(100vh - 255px);">
-	<h1 class="fs-large text-center mb-2 py-3">User Management</h1>
-	<div style="max-width: 1200px;" class="m-auto mb-4">
-		<table id="scheduleList">
-			<thead>
-				<tr>
-					<th class="text-nowrap p-3"><span class="d-inline-block">Name</span><span></span></th>
-					<th class="text-nowrap p-2"><span class="d-inline-block">Email</span><span></span></th>
-					<th class="text-nowrap p-2"><span class="d-inline-block">Role</span><span></span></th>
-					<th class="text-nowrap p-2"><span class="d-inline-block">Class</span><span></span></th>
-					<th class="text-nowrap p-2"><span class="d-inline-block">Date Of Birth</span><span></span></th>
-					<th class="text-nowrap p-2"><span class="d-inline-block">Phone Number</span><span></span></th>
-					<th class="text-nowrap p-2"><span class="d-inline-block">Status</span><span></span></th>
-					<th class="text-center text-nowrap"><span class="d-inline-block">Action</span><span></span></th>
-				</tr>
-			</thead>
-			<tbody>
-				@foreach (var item in Model)
-				{
+@model ScheduleAndStudentViewModel;
+<div class="container">
+	<div class="schedule">
+		<h1 class="fs-large  text-center mb-0 py-3">Schedules</h1>
+		<div class="d-flex justify-content-center align-items-center flex-wrap">
+			@foreach (var item in Model.schedule)
+			{
+				<div class="py-4 m-2 glass col-3 rounded-2 text-center">
+					<p class="">@item.Description</p>
+					<p>@item.UploadedDate.ToString("dd MMMM yyyy")</p>
+					<a class="btn btn-outline-warning rounded-0" asp-controller="Admin" asp-action="GetSchedule"
+					asp-route-id="@item.Id" target="_blank">View</a>
+				</div>
+			}
+		</div>
+	</div>
+	<div class="student mt-2">
+		<h1 class="fs-large  text-center mb-0 py-3">Students</h1>
+		<div style="max-width: 1000px;" class="m-auto">
+			<table id="scheduleList">
+				<thead>
+
 					<tr>
-						<td class="p-3">@(item.FirstName+" "+item.MiddleName+" "+item.LastName)</td>
-						<td class="p-2">@item.Email</td>
-						@if (item.UserTypeId == 1)
-						{
-							<td class="p-2">Student</td>
-						}
-						else if (item.UserTypeId == 2)
-						{
-							<td class="p-2">Teacher</td>
-						}
-						else
-						{
-							<td class="p-2">Admin</td>
-						}
-						<td class="p-2 text-center">@item.ClassId</td>
-						<td class="p-2">@item.DateOfBirth.ToString("dd MMM yyyy")</td>
-						<td class="p-2">@item.PhoneNumber</td>
-						<td class="p-2">@((bool)item.IsLeaved?"Active":"Inactive")</td>
-						<td class="text-center"><button
-							class="btn btn-outline-warning rounded-0 deleteSchedule">@((bool)item.IsLeaved?"Activate":"Deactivate")</button>
-						</td>
+						<th class="text-center text-nowrap"><span class="d-inline-block">Name</span><span></span></th>
+						<th class="text-nowrap p-2 text-center"><span class="d-inline-block">Roll No</span><span></span>
+						</th>
+						<th class="text-nowrap p-2"><span class="d-inline-block">Email</span><span></span></th>
+						<th class="text-nowrap p-2"><span class="d-inline-block">Phone No</span><span></span></th>
 					</tr>
-				}
-			</tbody>
-		</table>
+				</thead>
+				<tbody>
+					@foreach (var item in Model.student)
+					{
+						<tr>
+							<td class="text-center">@(item.FirstName+" "+item.MiddleName+" "+item.LastName)</td>
+							<td class="p-2 text-center">@item.RollNo</td>
+							<td class="p-2">@item.Email</td>
+							<td class="p-2">@item.PhoneNumber</td>
+						</tr>
+					}
+				</tbody>
+			</table>
+		</div>
 	</div>
 </div>
-
 @section CSS{
 <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
 <style>
@@ -167,7 +160,7 @@
 				},
 				info: "Total Record: _MAX_",
 				lengthMenu: "Show_MENU_Entries",
-				emptyTable: "No schedule Found",
+				emptyTable: "No Student Found",
 			},
 			columnDefs: [
 				{ orderable: false, targets: 2 }

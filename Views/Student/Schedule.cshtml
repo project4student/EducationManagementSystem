@@ -1,0 +1,18 @@
+@{
+	ViewBag.PageTitle = "Schedule";
+}
+@model IEnumerable<Schedule>;
+<div class="container">
+	<h1 class="fs-large  text-center mb-0 py-3">Schedules</h1>
+	<div class="row mt-4 flex-wrap justify-content-center">
+		@foreach (var item in Model)
+		{
+			<div class="py-4 m-2 glass col-3 rounded-2 text-center">
+				<p class="">@item.Description</p>
+				<p>@item.UploadedDate.ToString("dd MMMM yyyy")</p>
+				<a class="btn btn-outline-warning rounded-0" asp-controller="Admin" asp-action="GetSchedule"
+				asp-route-id="@item.Id" target="_blank">View</a>
+			</div>
+		}
+	</div>
+</div>

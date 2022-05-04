@@ -16308,6 +16308,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "e:\\Study\\Sem-8\\Internship\\Education Management System\\EducationManagementSystem\\Views\\Teacher\\StudentList.cshtml",
+      "TargetPath": "Views\\Teacher\\StudentList.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "e:\\Study\\Sem-8\\Internship\\Education Management System\\EducationManagementSystem\\Views\\Student\\Index.cshtml",
       "TargetPath": "Views\\Student\\Index.cshtml",
       "FileKind": "mvc"
@@ -16320,6 +16325,11 @@
     {
       "FilePath": "e:\\Study\\Sem-8\\Internship\\Education Management System\\EducationManagementSystem\\Views\\Teacher\\AssignHomework.cshtml",
       "TargetPath": "Views\\Teacher\\AssignHomework.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "e:\\Study\\Sem-8\\Internship\\Education Management System\\EducationManagementSystem\\Views\\Student\\Schedule.cshtml",
+      "TargetPath": "Views\\Student\\Schedule.cshtml",
       "FileKind": "mvc"
     },
     {

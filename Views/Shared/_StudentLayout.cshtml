@@ -64,13 +64,6 @@
 				<i class="fa-solid fa-chart-line me-0 me-md-2"></i>
 				<div class="verticalNavbarLinkTitle">Dashboard</div>
 			</a>
-			@* <a
-				class='@(ViewBag.PageTitle!=null && ViewBag.PageTitle=="Add Homework"?"verticalNavbarLink
-				align-items-center my-1 d-flex w-100 px-md-2 py-md-1 p-1 active":"verticalNavbarLink align-items-center
-				my-1 d-flex w-100 px-md-2 py-md-1 p-1")'>
-				<i class="fa-solid fa-book me-0 me-md-2"></i>
-				<div class="verticalNavbarLinkTitle">Add Homework</div>
-				</a> *@
 			<a class='@(ViewBag.PageTitle!=null && ViewBag.PageTitle=="Homework"?"verticalNavbarLink align-items-center my-1 d-flex w-100 px-md-2 py-md-1 p-1 active":"verticalNavbarLink align-items-center my-1 d-flex w-100 px-md-2 py-md-1 p-1")'
 				role="button" asp-controller="Student" asp-action="Homework">
 				<i class="fa-solid fa-book-open-reader me-0 me-md-2"></i>
@@ -80,6 +73,11 @@
 				role="button" asp-controller="Student" asp-action="IdCard">
 				<i class="fa-solid fa-id-card me-0 me-md-2"></i>
 				<div class="verticalNavbarLinkTitle">Id Card</div>
+			</a>
+			<a class='@(ViewBag.PageTitle!=null && ViewBag.PageTitle=="Schedule"?"verticalNavbarLink align-items-center my-1 d-flex w-100 px-md-2 py-md-1 p-1 active":"verticalNavbarLink align-items-center my-1 d-flex w-100 px-md-2 py-md-1 p-1")'
+				role="button" asp-controller="Student" asp-action="Schedule">
+				<i class="fa-solid fa-clock me-0 me-md-2"></i>
+				<div class="verticalNavbarLinkTitle">Schedule</div>
 			</a>
 		</div>
 		@RenderBody()

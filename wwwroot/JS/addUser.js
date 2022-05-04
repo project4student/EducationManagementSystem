@@ -1,5 +1,6 @@
 $("#DateOfBirth").datepicker({
 	changeMonth: true,
+	shortYearCutoff: "-18",
 	changeYear: true,
 	showButtonPanel: true,
 	showAnim: "slideDown",

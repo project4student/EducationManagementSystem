@@ -136,14 +136,28 @@ public class AdminController : Controller
 		return Json(new { subject = Subject });
 	}
 
-	[Authorize(Roles = "Admin,Student,Teacher")]
+	[AllowAnonymous]
 	public IActionResult GetSchedule(int Id)
 	{
-		var schedule = context.Schedules.Where(s => s.Id == Id).Select(s => s.FilePath).FirstOrDefault();
-		string path = $"wwwroot/{schedule}";
-		byte[] pdf = System.IO.File.ReadAllBytes(path);
-		MemoryStream ms = new MemoryStream(pdf);
-		return new FileStreamResult(ms, "application/pdf");
+		try
+		{
+			if (User.Identity.IsAuthenticated && (User.IsInRole("Admin") || User.IsInRole("Student") || User.IsInRole("Teacher")))
+			{
+				var schedule = context.Schedules.Where(s => s.Id == Id).Select(s => s.FilePath).FirstOrDefault();
+				string path = $"wwwroot/{schedule}";
+				byte[] pdf = System.IO.File.ReadAllBytes(path);
+				MemoryStream ms = new MemoryStream(pdf);
+				return new FileStreamResult(ms, "application/pdf");
+			}
+			else
+			{
+				return RedirectToAction("Login", "Account");
+			}
+		}
+		catch
+		{
+			return Json(new { isSuccess = false, err = "Internal Server Error" });
+		}
 	}
 
 	public IActionResult Notice()
@@ -180,6 +194,7 @@ public class AdminController : Controller
 	}
 	public IActionResult UserManagement()
 	{
-		return View();
+		var users = context.User.ToList();
+		return View(users);
 	}
 }

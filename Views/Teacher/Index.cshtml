@@ -1,116 +1,98 @@
 @{
 	ViewBag.PageTitle = "Dashboard";
 }
+@model IEnumerable<TeacherDashboardViewModel>
 @section CSS{
 <link rel="stylesheet" href="~/CSS/stackCard.css" asp-append-version="true">
+<style>
+	.box-card {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-wrap: wrap;
+	}
+
+	.card {
+		position: relative;
+		width: 340px;
+		height: 350px;
+		margin: 1.5rem;
+		box-shadow: 20px 20px 50px rgba(8, 6, 6, 0.2);
+		border-radius: 15px;
+		background: rgba(255, 255, 255, 0.1);
+		overflow: hidden;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		border-top: 1px solid rgba(255, 255, 255, 0.5);
+		border-left: 1px solid rgba(255, 255, 255, 0.5);
+		backdrop-filter: blur(15px);
+	}
+
+	.content {
+		padding: 20px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-direction: column;
+		transition: 0.5s;
+		position: absolute;
+		top: 20%;
+		height: 100%;
+	}
+
+	.card>h2 {
+		position: absolute;
+		top: 8px;
+		right: 40px;
+		font-size: 7rem;
+		color: rgba(0, 0, 0, 0.35);
+		pointer-events: none;
+	}
+
+	.card h3 {
+		font-size: 30px;
+		text-transform: uppercase;
+		position: absolute;
+		top: 33%;
+		letter-spacing: 2px;
+		z-index: 1;
+		transition: top 0.3s;
+	}
+
+	.content p {
+		font-size: 25px;
+		margin: 20px 0;
+		text-align: center;
+	}
+
+	.content a {
+		position: relative;
+		display: inline-block;
+		padding: 10px 20px;
+		background: #fff;
+		color: black;
+		border-radius: 35px;
+		text-decoration: none;
+		box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+	}
+</style>
 }
-<div class="text-center">
-	<div class="cardContainer">
-		<div class="closeBtn">
-			<i class="fa-regular fa-circle-xmark fs-large"></i>
-		</div>
-		<div class="card" style="--x: -2; --y: -2; --o: 10">
-			<div class="content" style="--j: 1">
-				<h2>Card 01</h2>
-				<p>
-					Lorem ipsum, dolor sit amet consectetur adipisicing elit. Mollitia quia saepe iste quae optio
-					reprehenderit provident autem
-					nulla doloremque quidem et aliquam in, consectetur aspernatur.
-				</p>
+<div class="container">
+
+	<h1 class="fs-large text-center mb-3 pb-2">Dashboard</h1>
+	<div class="text-center box-card">
+		@foreach (var item in Model)
+		{
+			<div class="card">
+				<h2>@item.ClassId</h2>
+				<h3>@item.SubjectName</h3>
+				<div class="content">
+					<a asp-controller="Teacher" asp-action="StudentList" asp-route-Id=@item.ClassId>View Students</a>
+				</div>
 			</div>
-		</div>
-		<div class="card" style="--x: -1; --y: -2; --o: 9">
-			<div class="content" style="--j: 2">
-				<h2>Card 02</h2>
-				<p>
-					Lorem ipsum, dolor sit amet consectetur adipisicing elit. Mollitia quia saepe iste quae optio
-					reprehenderit provident autem
-					nulla doloremque quidem et aliquam in, consectetur aspernatur.
-				</p>
-			</div>
-		</div>
-		<div class="card" style="--x: 0; --y: -2; --o: 8">
-			<div class="content" style="--j: 3">
-				<h2>Card 03</h2>
-				<p>
-					Lorem ipsum, dolor sit amet consectetur adipisicing elit. Mollitia quia saepe iste quae optio
-					reprehenderit provident autem
-					nulla doloremque quidem et aliquam in, consectetur aspernatur.
-				</p>
-			</div>
-		</div>
-		<div class="card" style="--x: 1; --y: -2; --o: 7">
-			<div class="content" style="--j: 4">
-				<h2>Card 03</h2>
-				<p>
-					Lorem ipsum, dolor sit amet consectetur adipisicing elit. Mollitia quia saepe iste quae optio
-					reprehenderit provident autem
-					nulla doloremque quidem et aliquam in, consectetur aspernatur.
-				</p>
-			</div>
-		</div>
-		<div class="card" style="--x: 2; --y: -2; --o: 6">
-			<div class="content" style="--j: 5">
-				<h2>Card 03</h2>
-				<p>
-					Lorem ipsum, dolor sit amet consectetur adipisicing elit. Mollitia quia saepe iste quae optio
-					reprehenderit provident autem
-					nulla doloremque quidem et aliquam in, consectetur aspernatur.
-				</p>
-			</div>
-		</div>
-		<div class="card" style="--x: -2; --y: 0; --o: 5">
-			<div class="content" style="--j: 6">
-				<h2>Card 03</h2>
-				<p>
-					Lorem ipsum, dolor sit amet consectetur adipisicing elit. Mollitia quia saepe iste quae optio
-					reprehenderit provident autem
-					nulla doloremque quidem et aliquam in, consectetur aspernatur.
-				</p>
-			</div>
-		</div>
-		<div class="card" style="--x: -1; --y: 0; --o: 4">
-			<div class="content" style="--j: 7">
-				<h2>Card 03</h2>
-				<p>
-					Lorem ipsum, dolor sit amet consectetur adipisicing elit. Mollitia quia saepe iste quae optio
-					reprehenderit provident autem
-					nulla doloremque quidem et aliquam in, consectetur aspernatur.
-				</p>
-			</div>
-		</div>
-		<div class="card" style="--x: 0; --y: 0; --o: 3">
-			<div class="content" style="--j: 8">
-				<h2>Card 03</h2>
-				<p>
-					Lorem ipsum, dolor sit amet consectetur adipisicing elit. Mollitia quia saepe iste quae optio
-					reprehenderit provident autem
-					nulla doloremque quidem et aliquam in, consectetur aspernatur.
-				</p>
-			</div>
-		</div>
-		<div class="card" style="--x: 1; --y: 0; --o: 2">
-			<div class="content" style="--j: 9">
-				<h2>Card 03</h2>
-				<p>
-					Lorem ipsum, dolor sit amet consectetur adipisicing elit. Mollitia quia saepe iste quae optio
-					reprehenderit provident autem
-					nulla doloremque quidem et aliquam in, consectetur aspernatur.
-				</p>
-			</div>
-		</div>
-		<div class="card" style="--x: 2; --y: 0; --o: 1">
-			<div class="content" style="--j: 10">
-				<h2>Card 03</h2>
-				<p>
-					Lorem ipsum, dolor sit amet consectetur adipisicing elit. Mollitia quia saepe iste quae optio
-					reprehenderit provident autem
-					nulla doloremque quidem et aliquam in, consectetur aspernatur.
-				</p>
-			</div>
-		</div>
+		}
 	</div>
-	<button type="submit" class="btn btn-outline-warning classShow mt-3">Show Classes</button>
 </div>
 
 @section CustomScripts

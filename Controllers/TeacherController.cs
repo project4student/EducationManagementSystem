@@ -19,9 +19,33 @@ public class TeacherController : Controller
 		this.userManager = userManager;
 		this.webHostEnvironment = webHostEnvironment;
 	}
-	public IActionResult Index()
+	public async Task<IActionResult> Index()
 	{
-		return View();
+		var user = await userManager.GetUserAsync(User);
+		var dashboard = (from u in context.User
+						 join asub in context.SubjectAssigned on u.Id equals asub.TeacherId
+						 join sub in context.Subject on asub.SubjectId equals sub.SubjectId
+						 where u.Id == user.Id
+						 select new TeacherDashboardViewModel
+						 {
+							 ClassId = sub.ClassId,
+							 SubjectName = sub.SubjectName
+						 }
+						).OrderBy(c => c.ClassId).ToList();
+		return View(dashboard);
+	}
+
+	public IActionResult StudentList(int Id)
+	{
+		var student = context.User.Where(u => u.UserTypeId == 1 && u.ClassId == Id).ToList();
+		var schedule = context.Schedules.Where(s => s.ClassId == Id).ToList();
+
+		var model = new ScheduleAndStudentViewModel()
+		{
+			student = student,
+			schedule = schedule
+		};
+		return View(model);
 	}
 
 	public async Task<IActionResult> AssignHomework()

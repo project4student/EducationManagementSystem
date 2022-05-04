@@ -182,4 +182,11 @@ public class StudentController : Controller
 			return Json(new { err = "Internal Server Error !" });
 		}
 	}
+
+	public async Task<IActionResult> Schedule()
+	{
+		var user = await userManager.GetUserAsync(User);
+		var schedules = context.Schedules.Where(s => s.ClassId == user.ClassId).ToList();
+		return View(schedules);
+	}
 }
